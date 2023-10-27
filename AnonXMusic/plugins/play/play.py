@@ -36,8 +36,9 @@ from config import BANNED_USERS, lyrical
             "vplayforce",
             "cplayforce",
             "cvplayforce",
-        ]
-    )
+        "تشغيل",
+        "فيديو",
+        "ق شغل",], "")
     & filters.group
     & ~BANNED_USERS
 )
