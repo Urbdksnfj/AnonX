@@ -10,7 +10,7 @@ from config import BANNED_USERS
 
 
 @app.on_message(
-    filters.command(["end", "stop", "cend", "cstop","ايقاف","انهاء"], "")
+    filters.command(["/end", "/stop", "cend", "cstop","ايقاف","انهاء"], "")
  & filters.group & ~BANNED_USERS
 )
 @AdminRightsCheck
