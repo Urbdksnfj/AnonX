@@ -14,7 +14,7 @@ from random import  choice, randint
 
 
 @app.on_message(
-    command(["سورس مين","سورس","السورس","سورسي", "Almortagel"])
+    filters.command(["سورس مين","سورس","السورس","سورسي", "Almortagel"])
     & ~filters.edited
 )
 async def huhh(client: Client, message: Message):
@@ -42,7 +42,7 @@ async def huhh(client: Client, message: Message):
 
 
 
-@app.on_message(command(["غنيلي", "غني", "غ", "🎙 ¦ غـنيـلي"]))
+@app.on_message(filters.command(["غنيلي", "غني", "غ", "🎙 ¦ غـنيـلي"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(3,267)
     url = f"https://t.me/bsmaatt/{rl}"
@@ -55,4 +55,4 @@ async def ihd(client: Client, message: Message):
                 ],
             ]
         )
-    )
+)
