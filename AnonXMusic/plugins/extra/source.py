@@ -1,12 +1,18 @@
 import asyncio
-from pyrogram import Client, filters
-from strings.filters import command
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from AnonXMusic import app
-from os import getenv
-from dotenv import load_dotenv
 
-load_dotenv()
+import os
+import time
+import requests
+from config import START_IMG_URL
+from pyrogram import filters
+import random
+from pyrogram import Client
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from strings.filters import command
+from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from AnonXMusic import app
+from random import  choice, randint
+
 
 @app.on_message(
     command(["سورس مين","سورس","السورس","سورسي", "Almortagel"])
