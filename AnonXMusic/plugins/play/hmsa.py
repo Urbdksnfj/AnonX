@@ -8,7 +8,6 @@ from pyrogram.types import (InlineKeyboardButton,
 
                             InlineKeyboardMarkup, Message)
 
-from strings.filters import command
 
 from pyrogram import filters, Client
 
@@ -28,7 +27,7 @@ def reply_with_link(client, message):
     message.reply_text("\n╢ إضغط لإرسال همسه!\n", reply_markup=reply_markup)
 
 waiting_for_hms = False
-@app.on_message(filters.command("ALhms"))
+@app.on_message(filters.filters.command("ALhms"))
 def hms_start(client, message):
   
   if message.text.split(" ", 1)[-1].startswith("hms"):
@@ -42,7 +41,7 @@ def hms_start(client, message):
       ]])
     )
 
-@app.on_message(filters.private & filters.text & ~filters.command("ALhms"))
+@app.on_message(filters.private & filters.text & ~filters.filters.command("ALhms"))
 def send_hms(client, message):
   
   global waiting_for_hms

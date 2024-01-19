@@ -2,8 +2,6 @@ import asyncio
 import config
 from pyrogram import Client, filters
 from pyrogram import filters
-from pyrogram import get_command
-from pyrogram import command
 from AnonXMusic import app
 from config import OWNER_ID
 from AnonXMusic.misc import SUDOERS
@@ -12,7 +10,7 @@ from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMar
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from AnonXMusic.misc import SUDOERS
 
-@app.on_message(command(["ابراج","ابراج"]))
+@app.on_message(filters.command(["ابراج","ابراج"]))
 async def abrag(c: Client, m: Message):
     global mid
     mid = m.message_id

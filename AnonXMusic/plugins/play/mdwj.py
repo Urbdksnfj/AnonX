@@ -6,13 +6,12 @@ import aiohttp
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from strings.filters import command
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from AnonXMusic import app
 from asyncio import gather
 
 
-@app.on_message(command(["تلغراف", "تلغراف ميديا", "ميديا"]) & ~filters.edited)
+@app.on_message(filters.command(["تلغراف", "تلغراف ميديا", "ميديا"]) & ~filters.edited)
 async def telegraph(client: Client, message: Message):
     replied = message.reply_to_message
     if not replied:
@@ -64,7 +63,7 @@ async def telegraph(client: Client, message: Message):
 
 
 
-@app.on_message(command(["معلوماته", "كشف"]) & filters.group & ~filters.edited) 
+@app.on_message(filters.command(["معلوماته", "كشف"]) & filters.group & ~filters.edited) 
 async def hshs(client: Client, message: Message):      
     usr = await client.get_users(message.reply_to_message.from_user.id)
     name = usr.first_name#
@@ -88,7 +87,7 @@ async def hshs(client: Client, message: Message):
 
 
 @app.on_message(
-    command(["بايو","البايو"])
+    filters.command(["بايو","البايو"])
     & filters.group
     & ~filters.edited
 )
@@ -98,7 +97,7 @@ async def biio(client, message):
   await message.reply_text(bio
   )
 @app.on_message(
-    command(["شخصيتي", "معلوماتي", "شخصيه"])
+    filters.command(["شخصيتي", "معلوماتي", "شخصيه"])
     & filters.group
     & ~filters.edited
 )
@@ -120,7 +119,7 @@ async def ppdi(client: Client, message: Message):
  
  
  
-@app.on_message(command(["تحويل_لصوره", "تحويل الصوره"]))
+@app.on_message(filters.command(["تحويل_لصوره", "تحويل الصوره"]))
 async def sticker_image(client: Client, message: Message):
     reply = message.reply_to_message
     if not reply:
@@ -135,7 +134,7 @@ async def sticker_image(client: Client, message: Message):
 
 
 
-@app.on_message(command(["الجروب", "جروب"]) & filters.group & ~filters.edited)
+@app.on_message(filters.command(["الجروب", "جروب"]) & filters.group & ~filters.edited)
 async def ginnj(client: Client, message: Message):
     chat_idd = message.chat.id
     chat_name = message.chat.title

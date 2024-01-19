@@ -6,15 +6,14 @@ import aiohttp
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from strings.filters import command
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from AnonXMusic import app
 from asyncio import gather
 from pyrogram.errors import FloodWait
 
-@app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
+@app.on_message(filters.command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
 async def gak_owne(client: Client, message: Message):
-      if len(message.command) >= 2:
+      if len(message.filters.command) >= 2:
          return 
       else:
             chat_id = message.chat.id
@@ -31,7 +30,7 @@ async def gak_owne(client: Client, message: Message):
                     return await message.reply("• " + member.user.mention)
                               
    
-@app.on_message(command(["اسمي", "اسمي اي"]) & filters.group )
+@app.on_message(filters.command(["اسمي", "اسمي اي"]) & filters.group )
 async def vgdg(client: Client, message: Message):
     await message.reply_text(
         f"""❤️‍🔥 اسمك »»  {message.from_user.mention()}""") 
@@ -39,7 +38,7 @@ async def vgdg(client: Client, message: Message):
         
 
 array = []
-@app.on_message(command(["@all", "تاك","تاك للكل"]) & ~filters.private)
+@app.on_message(filters.command(["@all", "تاك","تاك للكل"]) & ~filters.private)
 async def nummmm(client: app, message):
   if message.chat.id in array:
      return await message.reply_text("**التاك قيد التشغيل حالياً ،**")
@@ -85,7 +84,7 @@ async def nummmm(client: app, message):
   array.remove(message.chat.id)
 
 
-@app.on_message(command(["بس المنشن", "/cancel","بس منشن"]))
+@app.on_message(filters.command(["بس المنشن", "/cancel","بس منشن"]))
 async def stop(client, message):
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:

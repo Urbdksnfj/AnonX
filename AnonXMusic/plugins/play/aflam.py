@@ -7,8 +7,6 @@
 
 import asyncio
 
-from strings import get_command
-from strings.filters import command
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from AnonXMusic import app
@@ -24,7 +22,7 @@ from AnonXMusic import app
 # Replay Text
 
 @app.on_message(
-    command(["افلام"])
+    filters.command(["افلام"])
     & ~filters.edited
 )
 async def aflamAR(c: Client, m: Message):

@@ -1,11 +1,9 @@
 import asyncio
 from pyrogram import Client, filters
-from strings import get_command
-from strings.filters import command
 from pyrogram.types import Message
 from AnonXMusic import app
 
-@app.on_message(command(["الرابط","/link"]) & ~filters.bot & ~filters.private)
+@app.on_message(filters.command(["الرابط","/link"]) & ~filters.bot & ~filters.private)
 async def invitelink(client, message):
     chid = message.chat.id
     try:

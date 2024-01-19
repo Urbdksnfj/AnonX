@@ -2,8 +2,6 @@ import asyncio
 from pyrogram import Client, filters
 from random import choice
 from pyrogram import filters
-from strings import get_command
-from strings.filters import command
 from config import BANNED_USERS
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from typing import Union
@@ -64,7 +62,7 @@ REPLY_MESSAGE_BUTTONS = [
     ]
 ]
 
-@app.on_message(command("/almortagel") & filters.private & ~filters.edited)
+@app.on_message(filters.command("/almortagel") & filters.private & ~filters.edited)
 async def madison(client: Client, message: Message): 
     text = REPLY_MESSAGE
     reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
@@ -74,14 +72,14 @@ async def madison(client: Client, message: Message):
     )
 
 
-@app.on_message(command("❎ ¦ حذف الكيبورد") & filters.private & ~filters.edited)
+@app.on_message(filters.command("❎ ¦ حذف الكيبورد") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_text(
         text="""❎ ¦ تم حذف الكيبورد بنجاح""",
         reply_markup=ReplyKeyboardRemove()
     )
 
-@app.on_message(command("⛔ ¦ المحظورين") & filters.private & ~filters.edited)
+@app.on_message(filters.command("⛔ ¦ المحظورين") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/89840a4c57675832debf9.jpg",
@@ -96,7 +94,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(command("🍁 ¦ حظر") & filters.private & ~filters.edited)
+@app.on_message(filters.command("🍁 ¦ حظر") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/5dc0bab3462bd868b3081.jpg",
@@ -111,7 +109,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(command("🖇 ¦ الغاء حظر") & filters.private & ~filters.edited)
+@app.on_message(filters.command("🖇 ¦ الغاء حظر") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/4268ef332d710c5547357.jpg",
@@ -126,7 +124,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(command("🔥 ¦ المحظورين عام") & filters.private & ~filters.edited)
+@app.on_message(filters.command("🔥 ¦ المحظورين عام") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/cc2b0b6c4eea77c43b8b4.jpg",
@@ -141,7 +139,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(command("🗞 ¦ حظر عام") & filters.private & ~filters.edited)
+@app.on_message(filters.command("🗞 ¦ حظر عام") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/d0db8351713f77bb8450b.jpg",
@@ -156,7 +154,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(command("🔖 ¦ الغاء العام") & filters.private & ~filters.edited)
+@app.on_message(filters.command("🔖 ¦ الغاء العام") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/611ee77edc1763ea2b07b.jpg",
@@ -171,7 +169,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(command("🪂 ¦ الاحصائيات") & filters.private & ~filters.edited)
+@app.on_message(filters.command("🪂 ¦ الاحصائيات") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/571e1fb1857c8ae6e6be1.jpg",
@@ -186,7 +184,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(command("ذكاء الاصطناعي") & filters.private & ~filters.edited)
+@app.on_message(filters.command("ذكاء الاصطناعي") & filters.private & ~filters.edited)
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/c544b771eeed7dbdc51a9.jpg",

@@ -9,13 +9,12 @@ from pyrogram import filters
 import random
 from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from strings.filters import command
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from AnonXMusic import app
 from random import  choice, randint
 
 @app.on_message(
-    command(["سورس مين","سورس","السورس","سورسي", "Almortagel"])
+    filters.command(["سورس مين","سورس","السورس","سورسي", "Almortagel"])
     & ~filters.edited
 )
 async def huhh(client: Client, message: Message):
@@ -43,7 +42,7 @@ async def huhh(client: Client, message: Message):
 
 
 
-@app.on_message(command(["غنيلي", "غني", "غ", "🎙 ¦ غـنيـلي"]))
+@app.on_message(filters.command(["غنيلي", "غني", "غ", "🎙 ¦ غـنيـلي"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(3,267)
     url = f"https://t.me/bsmaatt/{rl}"
