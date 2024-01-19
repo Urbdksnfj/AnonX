@@ -1,9 +1,6 @@
-
-
 import asyncio
 
 import os
-import time
 import requests
 from config import START_IMG_URL
 from pyrogram import filters
