@@ -30,12 +30,12 @@ from config import BANNED_USERS, lyrical
         [
             "/play",
             "/vplay",
-            "/cplay",
-            "/cvplay",
+            "cplay",
+            "cvplay",
             "/playforce",
             "/vplayforce",
-            "/cplayforce",
-            "/cvplayforce",
+            "cplayforce",
+            "cvplayforce",
             "تشغيل",
              "فيديو",
              "تخطي"], "")
