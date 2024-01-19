@@ -1,11 +1,11 @@
 import random
 import re
 
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message
 from AnonXMusic import app
 
-@app.on_message(filters.command(["زخرفه"])
+@app.on_message(filters.command(["زخرفه",""])
 & filters.group
 )
 async def zahrafa(c: Client, m: Message):
