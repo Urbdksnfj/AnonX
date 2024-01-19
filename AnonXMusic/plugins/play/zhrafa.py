@@ -5,7 +5,9 @@ from pyrogram import Client
 from pyrogram.types import Message
 from AnonXMusic import app
 
-@app.on_message(filters.command("زخرفه"))
+@app.on_message(filters.command(["زخرفه"])
+& filters.group
+)
 async def zahrafa(c: Client, m: Message):
     text = m.text.split(None, 1)[1]
     if len(m.text) > 300:
