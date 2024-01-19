@@ -13,7 +13,7 @@ REPLY_MESSAGE = "**🧑🏻‍✈️︙اهلا بك بك عزيزي العضو 
 
 REPLY_MESSAGE_BUTTONS = [
     [
-             ("المطور"),                   
+             ("المبرمج"),                   
              ("سورس")
 
           ],
@@ -72,7 +72,9 @@ async def madison(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command("❎ ¦ حذف الكيبورد") & filters.private & filters.group)
+@app.on_message(filters.command("❎ ¦ حذف الكيبورد") 
+& filters.private
+)
 async def upbkgt(client: Client, message: Message):
     await message.reply_text(
         text="""❎ ¦ تم حذف الكيبورد بنجاح""",
