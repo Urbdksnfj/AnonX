@@ -18,7 +18,7 @@ REPLY_MESSAGE_BUTTONS = [
 
           ],
           [
-             ("ذكاء الاصطناعي"),
+             ("الذكاء"),
               ("افلام")
           ],
           [
@@ -186,7 +186,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(filters.command("ذكاء الاصطناعي"], ""))
+@app.on_message(filters.command("ذكاء الاصطناعي", "الذكاء"], ""))
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/c544b771eeed7dbdc51a9.jpg",
