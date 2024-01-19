@@ -11,7 +11,7 @@ from AnonXMusic import app
 from asyncio import gather
 from pyrogram.errors import FloodWait
 
-@app.on_message(filters.command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
+@app.on_message(filters.command(["المالك", "صاحب الخرابه", "المنشي"], "") & filters.group)
 async def gak_owne(client: Client, message: Message):
       if len(message.filters.command) >= 2:
          return 
@@ -21,7 +21,7 @@ async def gak_owne(client: Client, message: Message):
             async for member in client.iter_chat_members(chat_id, filter=f):
                if member.status == "creator":
                  id = member.user.id
-                 key = InlineKeyboardMarkup([[InlineKeyboardButton(member.user.first_name, user_id=id)]])
+                 key = InlineKeyboardMarkup([[InlineKeyboardButton(member.user.first_name, user_id=id)]], "")
                  m = await client.get_chat(id)
                  if m.photo:
                        photo = await app.download_media(m.photo.big_file_id)
@@ -30,7 +30,7 @@ async def gak_owne(client: Client, message: Message):
                     return await message.reply("• " + member.user.mention)
                               
    
-@app.on_message(filters.command(["اسمي", "اسمي اي"]) & filters.group )
+@app.on_message(filters.command(["اسمي", "اسمي اي"], "") & filters.group )
 async def vgdg(client: Client, message: Message):
     await message.reply_text(
         f"""❤️‍🔥 اسمك »»  {message.from_user.mention()}""") 
@@ -38,7 +38,7 @@ async def vgdg(client: Client, message: Message):
         
 
 array = []
-@app.on_message(filters.command(["@all", "تاك","تاك للكل"]) & filters.private)
+@app.on_message(filters.command(["@all", "تاك","تاك للكل"], "") & filters.private)
 async def nummmm(client: app, message):
   if message.chat.id in array:
      return await message.reply_text("**التاك قيد التشغيل حالياً ،**")
@@ -84,7 +84,7 @@ async def nummmm(client: app, message):
   array.remove(message.chat.id)
 
 
-@app.on_message(filters.command(["بس المنشن", "/cancel","بس منشن"]))
+@app.on_message(filters.command(["بس المنشن", "/cancel","بس منشن"], ""))
 async def stop(client, message):
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:

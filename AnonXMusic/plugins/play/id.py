@@ -13,7 +13,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 iddof = []
 @app.on_message(
-    filters.command(["قفل الايدي","تعطيل الايدي"])
+    filters.command(["قفل الايدي","تعطيل الايدي"], "")
 & filters.group
 )
 async def iddlock(client, message):
@@ -27,7 +27,7 @@ async def iddlock(client, message):
       return await message.reply_text("لازم تكون ادمن يشخه علشان اسمع كلامك")
 
 @app.on_message(
-    filters.command(["فتح الايدي","تفعيل الايدي"])
+    filters.command(["فتح الايدي","تفعيل الايدي"], "")
 & filters.group
 )
 async def iddopen(client, message):
@@ -44,7 +44,7 @@ async def iddopen(client, message):
 
 
 @app.on_message(
-    filters.command(["ايدي","id","ا"])
+    filters.command(["ايدي","id","ا"], "")
 & filters.group
 )
 async def iddd(client, message):
@@ -68,7 +68,7 @@ async def iddd(client, message):
 
 iddof = []
 @app.on_message(
-    filters.command(["قفل جمالي","تعطيل جمالي"])
+    filters.command(["قفل جمالي","تعطيل جمالي"], "")
 & filters.group
 )
 async def lllock(client, message):
@@ -82,7 +82,7 @@ async def lllock(client, message):
       return await message.reply_text("لازم تكون ادمن يشخه علشان اسمع كلامك")
 
 @app.on_message(
-    filters.command(["فتح جمالي","تفعيل جمالي"])
+    filters.command(["فتح جمالي","تفعيل جمالي"], "")
 & filters.group
 )
 async def idljjopen(client, message):
@@ -99,7 +99,7 @@ async def idljjopen(client, message):
 
 
 @app.on_message(
-    filters.command(["جمالي"])
+    filters.command(["جمالي"], "")
 & filters.group
 )
 async def idjjdd(client, message):

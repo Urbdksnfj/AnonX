@@ -11,7 +11,7 @@ from AnonXMusic import app
 from asyncio import gather
 
 
-@app.on_message(filters.command(["تلغراف", "تلغراف ميديا", "ميديا"]) & filters.group)
+@app.on_message(filters.command(["تلغراف", "تلغراف ميديا", "ميديا"], "") & filters.group)
 async def telegraph(client: Client, message: Message):
     replied = message.reply_to_message
     if not replied:
@@ -63,7 +63,7 @@ async def telegraph(client: Client, message: Message):
 
 
 
-@app.on_message(filters.command(["معلوماته", "كشف"]) & filters.group) 
+@app.on_message(filters.command(["معلوماته", "كشف"], "") & filters.group) 
 async def hshs(client: Client, message: Message):      
     usr = await client.get_users(message.reply_to_message.from_user.id)
     name = usr.first_name#
@@ -87,7 +87,7 @@ async def hshs(client: Client, message: Message):
 
 
 @app.on_message(
-    filters.command(["بايو","البايو"])
+    filters.command(["بايو","البايو"], "")
     & filters.group
     & filters.group
 )
@@ -97,7 +97,7 @@ async def biio(client, message):
   await message.reply_text(bio
   )
 @app.on_message(
-    filters.command(["شخصيتي", "معلوماتي", "شخصيه"])
+    filters.command(["شخصيتي", "معلوماتي", "شخصيه"], "")
     & filters.group
     & filters.group
 )
@@ -119,7 +119,7 @@ async def ppdi(client: Client, message: Message):
  
  
  
-@app.on_message(filters.command(["تحويل_لصوره", "تحويل الصوره"]))
+@app.on_message(filters.command(["تحويل_لصوره", "تحويل الصوره"], ""))
 async def sticker_image(client: Client, message: Message):
     reply = message.reply_to_message
     if not reply:
@@ -128,13 +128,13 @@ async def sticker_image(client: Client, message: Message):
         return await message.reply("الرد على ملصق.")
     m = await message.reply("يتم المعالجه..")
     f = await reply.download(f"{reply.sticker.file_unique_id}.png")
-    await gather(*[message.reply_photo(f),message.reply_document(f)])
+    await gather(*[message.reply_photo(f),message.reply_document(f)], "")
     await m.delete()
     os.remove(f)
 
 
 
-@app.on_message(filters.command(["الجروب", "جروب"]) & filters.group)
+@app.on_message(filters.command(["الجروب", "جروب"], "") & filters.group)
 async def ginnj(client: Client, message: Message):
     chat_idd = message.chat.id
     chat_name = message.chat.title
