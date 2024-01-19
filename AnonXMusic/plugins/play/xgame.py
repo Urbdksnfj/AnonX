@@ -302,7 +302,7 @@ async def kaompj(client, message):
 
 @app.on_message(
     filters.command(["الالعاب","العاب"], "")
-    & ~filters.edited
+    & filters.group
 )
 async def zohary(client: Client, message: Message):
     await message.reply_photo(
