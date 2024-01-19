@@ -8,6 +8,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from AnonXMusic import app
 from AnonXMusic.utils.database import get_served_chats
+from config import LOG_GROUP_ID
+
 
 async def lul_message(chat_id: int, message: str):
     await app.send_message(chat_id=chat_id, text=message)

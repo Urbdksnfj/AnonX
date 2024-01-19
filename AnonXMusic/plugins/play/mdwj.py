@@ -11,7 +11,7 @@ from AnonXMusic import app
 from asyncio import gather
 
 
-@app.on_message(filters.command(["تلغراف", "تلغراف ميديا", "ميديا"]) & ~filters.edited)
+@app.on_message(filters.command(["تلغراف", "تلغراف ميديا", "ميديا"]) & filters.group)
 async def telegraph(client: Client, message: Message):
     replied = message.reply_to_message
     if not replied:
@@ -63,7 +63,7 @@ async def telegraph(client: Client, message: Message):
 
 
 
-@app.on_message(filters.command(["معلوماته", "كشف"]) & filters.group & ~filters.edited) 
+@app.on_message(filters.command(["معلوماته", "كشف"]) & filters.group) 
 async def hshs(client: Client, message: Message):      
     usr = await client.get_users(message.reply_to_message.from_user.id)
     name = usr.first_name#
@@ -89,7 +89,7 @@ async def hshs(client: Client, message: Message):
 @app.on_message(
     filters.command(["بايو","البايو"])
     & filters.group
-    & ~filters.edited
+    & filters.group
 )
 async def biio(client, message):
   nq = await client.get_chat(message.from_user.id)
@@ -99,7 +99,7 @@ async def biio(client, message):
 @app.on_message(
     filters.command(["شخصيتي", "معلوماتي", "شخصيه"])
     & filters.group
-    & ~filters.edited
+    & filters.group
 )
 async def ppdi(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
@@ -134,7 +134,7 @@ async def sticker_image(client: Client, message: Message):
 
 
 
-@app.on_message(filters.command(["الجروب", "جروب"]) & filters.group & ~filters.edited)
+@app.on_message(filters.command(["الجروب", "جروب"]) & filters.group)
 async def ginnj(client: Client, message: Message):
     chat_idd = message.chat.id
     chat_name = message.chat.title

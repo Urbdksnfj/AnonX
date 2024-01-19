@@ -7,10 +7,10 @@ import random
 from datetime import datetime
 import requests
 import pytz
-from AnonXMusic.core.call import Anony
+from AnonXMusic.core.call import AnonX
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
-from AnonXMusic.core.call import Anony
+from AnonXMusic.core.call import Anon
 from AnonXMusic.utils.database import *
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError,AlreadyJoinedError)
 from pyrogram.errors import (
@@ -40,11 +40,11 @@ async def azaan(c, msg):
       
 async def kill():
   for i in chat:
-    await Anony.force_stop_stream(i)
+    await Anon.force_stop_stream(i)
 
 
 async def play(i):
-  assistant = await group_assistant(Anony,i)
+  assistant = await group_assistant(Anon,i)
   file_path = "AnonXMusic/assets/azan.m4a"
   stream = AudioPiped(file_path, audio_parameters=HighQualityAudio())
   try:
@@ -55,7 +55,7 @@ async def play(i):
       )
   except NoActiveGroupCall:
     try:
-        await Anony.join_assistant(i,i)
+        await Anon.join_assistant(i,i)
     except Exception as e:
        await app.send_message(i,f"{e}")
   except TelegramServerError:

@@ -23,7 +23,7 @@ from AnonXMusic import app
 
 @app.on_message(
     filters.command(["افلام"])
-    & filters.group
+    & ~filters.edited
 )
 async def aflamAR(c: Client, m: Message):
     global mid
