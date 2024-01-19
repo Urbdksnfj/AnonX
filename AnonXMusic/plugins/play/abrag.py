@@ -10,7 +10,7 @@ from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMar
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from AnonXMusic.misc import SUDOERS
 
-@app.on_message(filters.command(["ابراج","ابراج"]))
+@app.on_message(filters.command(["ابراج"], ""))
 async def abrag(c: Client, m: Message):
     global mid
     mid = m.message_id
