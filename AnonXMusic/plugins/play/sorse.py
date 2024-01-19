@@ -14,9 +14,7 @@ from AnonXMusic import app
 from random import  choice, randint
 
 @app.on_message(
-    filters.command(["سورس مين","سورس","السورس","سورسي", "Almortagel"], "")
-    & filters.group & filters.private
-)
+    filters.command(["سورس مين","سورس","السورس","سورسي", "Almortagel"], ""))
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/14c7948ad180050fe16e4.jpg",
