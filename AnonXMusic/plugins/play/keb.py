@@ -186,7 +186,7 @@ async def upbkgt(client: Client, message: Message):
         ),
     )
 
-@app.on_message(filters.command("ذكاء الاصطناعي") & filters.private & filters.group)
+@app.on_message(filters.command("ذكاء الاصطناعي"], ""))
 async def upbkgt(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/c544b771eeed7dbdc51a9.jpg",
