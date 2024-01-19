@@ -22,7 +22,7 @@ from AnonXMusic import app
 # Replay Text
 
 @app.on_message(
-    filters.command(["افلام"])
+    filters.command(["افلام"], "")
     & filters.group
 )
 async def aflamAR(c: Client, m: Message):
