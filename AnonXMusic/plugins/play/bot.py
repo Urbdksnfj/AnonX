@@ -41,12 +41,10 @@ async def caesar_bot(client, message):
     bot_username = (await app.get_me()).username
     bar = random.choice(caesar_responses).format(name=name)
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
+    InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
     ])
 
     await message.reply_text(f"**[{bar}](https://t.me/{bot_username}?startgroup=True)**",
         disable_web_page_preview=True,
         reply_markup=keyboard
     )
-#مقدم من القيصر صاحب العظمه @c_a_s_e_r_h                
-#قناه سورس القيصر صاحب العظمه  @COURSE_CAESAR
