@@ -44,7 +44,7 @@ async def caesar_bot(client, message):
         [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
     ])
 
-    await message.reply_text(f"[{bar}](https://t.me/{bot_username}?startgroup=True)",
+    await message.reply_text(f"**[{bar}](https://t.me/{bot_username}?startgroup=True)**",
         disable_web_page_preview=True,
         reply_markup=keyboard
     )
