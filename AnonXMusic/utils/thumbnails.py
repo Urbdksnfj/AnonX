@@ -75,6 +75,14 @@ async def get_thumb(videoid):
         font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
         draw.text(
+            (600, 150),
+            "ALMORTAGEL Playing",
+            fill="white",
+            stroke_width=2,
+            stroke_fill="white",
+            font=arial,
+        )
+        draw.text(
             (55, 560),
             f"{channel} | {views[:23]}",
             (255, 255, 255),
@@ -107,6 +115,12 @@ async def get_thumb(videoid):
         draw.text(
             (1185, 685),
             f"{duration[:23]}",
+            (255, 255, 255),
+            font=arial,
+        )
+            draw.text(
+            (1285, 785),
+            f"DEV : ALMORTAGEL",
             (255, 255, 255),
             font=arial,
         )
