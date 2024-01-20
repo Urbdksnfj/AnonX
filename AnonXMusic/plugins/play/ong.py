@@ -3,7 +3,6 @@ import random
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters, Client
 from AnonXMusic import app
-from strings.filters import command
 
 @app.on_message(command(['نداء','ن'], ""))
 def call_random_member(client, message):
