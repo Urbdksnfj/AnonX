@@ -23,13 +23,19 @@ async def huhh(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "ALMORTAGEL", url=f"https://t.me/ALMORTAGEL_12"), 
-                ],[
-                    InlineKeyboardButton(
-                        "⌞ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ⌝⚡️", url=f"https://t.me/AlmortagelTech"),
-                ],[
-                    InlineKeyboardButton(
-                        "للتنصيب راسلني", url=f"https://t.me/ALMORTAGEL_12"),
+                text="𝚂𝙾𝚄𝚁𝙲𝙴⁩", url=f"https://t.me/AlmortagelTech"
+                        ),
+           InlineKeyboardButton(
+                text="𝙶𝚁𝙾𝚄𝙿", url=f"https://t.me/AlmortagelTech2"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="✯ᴍʀ ᴇʟᴍᴏʀᴛᴀɢᴇʟ✯", url=f"https://t.me/Almortagel_12"
+            ),
+        ],
+        [
+            InlineKeyboardButton("اضف البوت الي مجموعتك ❤️", url=f"https://t.me/{bot_username}?startgroup=True"),
                 ],
 
             ]
@@ -37,7 +43,6 @@ async def huhh(client: Client, message: Message):
         ),
 
     )
-
 
 
 @app.on_message(filters.command(["غنيلي", "غني", "غ", "🎙 ¦ غـنيـلي"], ""))
