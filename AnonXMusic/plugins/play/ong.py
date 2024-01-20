@@ -4,7 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters, Client
 from AnonXMusic import app
 
-@app.on_message(command(['نداء','ن'], ""))
+@app.on_message(filters.command(['نداء','ن'], ""))
 def call_random_member(client, message):
     chat_id = message.chat.id
     members = [
@@ -24,7 +24,7 @@ def call_random_member(client, message):
 
 
 
-@app.on_message(command(['زوجني','ز'], ""))
+@app.on_message(filters.command(['زوجني','ز'], ""))
 def call_random_member(client, message):
     chat_id = message.chat.id
     members = [
