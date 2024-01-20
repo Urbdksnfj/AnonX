@@ -45,7 +45,7 @@ async def caesar_bot(client, message):
     ])
 
     await message.reply_text(
-        text=f"**[{bar}](https://t.me/{bot_username}?startgroup=True)**",
+        text=f"{bar}(https://t.me/{bot_username}?startgroup=True)",
         reply_markup=keyboard
     )
     
