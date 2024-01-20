@@ -83,11 +83,13 @@ async def get_thumb(videoid):
             font=arial,
             )
         draw.text(
-            (600, 600),
+            (600, 340),
             f"DEV : ALMORTAGEL",
-            (255, 255, 255),
+            fill="white",
+            stroke_width=1,
+            stroke_fill="white",
             font=arial,
-            )
+        )
         draw.text(
             (55, 560),
             f"{channel} | {views[:23]}",
