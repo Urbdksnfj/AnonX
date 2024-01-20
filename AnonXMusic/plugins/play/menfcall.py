@@ -35,4 +35,4 @@ async def strcall(client, message):
     except TelegramServerError:
         await message.reply(f"ارسل الامر تاني في مشكله في سيرفر التلجرام\n❌")
         
-        
+ 
