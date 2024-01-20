@@ -35,7 +35,8 @@ async def huhh(client: Client, message: Message):
             ),
         ],
         [   
-            InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=true")
+            InlineKeyboardButton(
+               text="خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=true")
                 ],
 
             ]
