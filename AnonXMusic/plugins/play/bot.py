@@ -44,11 +44,9 @@ async def caesar_bot(client, message):
         [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
     ])
 
-    await message.reply_text(
-        text=f"[{bar}](https://t.me/{bot_username}?startgroup=True)",
+    await message.reply_text(f"[{bar}](https://t.me/{bot_username}?startgroup=True)",
         disable_web_page_preview=True,
         reply_markup=keyboard
     )
-    
 #مقدم من القيصر صاحب العظمه @c_a_s_e_r_h                
 #قناه سورس القيصر صاحب العظمه  @COURSE_CAESAR
