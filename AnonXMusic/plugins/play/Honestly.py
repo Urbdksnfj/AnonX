@@ -472,10 +472,10 @@ txt = [
         
 
 
-@app.on_message(filter.command(["اصراحه","اسال","س","سوال","اس"], ""))
+@app.on_message(filter.command(["اسال","سوال"], ""))
 
 
-async def cutt(client: Client, message: Message):
+async def soal(client: Client, message: Message):
 
 
       a = random.choice(txt)
