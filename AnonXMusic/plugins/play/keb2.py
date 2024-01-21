@@ -208,8 +208,7 @@ async def italy(client: Client, message: Message):
    
 
 
-@app.on_message(
-    command(["مطور البوت","مطور"], "")
+@app.on_message(filters.command(["مطور البوت","مطور"], "")
     & filters.group
 )
 async def yas(client, message):
