@@ -1,5 +1,4 @@
 import asyncio
-from AnonXMusic.plugins.xgame import callback_query
 import config
 from pyrogram import Client, filters
 from pyrogram import filters
