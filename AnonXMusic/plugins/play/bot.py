@@ -31,6 +31,5 @@ async def Italymusic(client: Client, message: Message):
     except Exception as e:
         print(e)
         rank = "مش عرفنلو مله ده😒"
-    async for message in client.iter_profile_message("me", limit=1):
         await message.reply_text(
         text=f"""نعم حبيبي : {italy} 🥰❤️\n**انا اسمي القميل : {bot_name} 🥺🙈\n**رتبتك هي : {rank}""", reply_markup=keyboard)
