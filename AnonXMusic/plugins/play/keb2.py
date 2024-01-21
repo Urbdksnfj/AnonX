@@ -209,10 +209,8 @@ async def italy(client: Client, message: Message):
     )
 
 
-@app.on_message(
-    command(["مطور البوت","مطور"])
+@app.on_message(filers.command(["مطور البوت","مطور"])
     & filters.group
-    & ~filters.edited
 )
 async def yas(client, message):
     usr = await client.get_chat({OWNER_ID})
