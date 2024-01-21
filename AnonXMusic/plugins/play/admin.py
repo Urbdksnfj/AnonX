@@ -29,7 +29,6 @@ import re
 import sys
 from os import getenv
 import sys
-from config import BOT_ID
 from AnonXMusic.misc import SUDOERS
 from os import getenv
 from pyrogram import filters
