@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 import re
 
 
-@app.on_message(filters.command(["كيب", "✭ رجوع"]) & SUDOERS)
+@app.on_message(filters.command(["كيب", "✭ رجوع"], "") & SUDOERS)
 
 async def crsourceowner(client: Client, message: Message):
     text = REPLY_MESSAGE
@@ -249,7 +249,7 @@ async def italy(client: Client, message: Message):
                     
 
 
-@app.on_message(filters.command("✭ مـطـوريـنـك") & SUDOERS)
+@app.on_message(filters.command("✭ مـطـوريـنـك") & filters.private & SUDOERS)
 async def italy(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
