@@ -4,7 +4,7 @@ from pyrogram import filters, Client
 from AnonXMusic import app
 
 # Replace the following line with your actual OWNER_ID
-OWNER_ID = 5089553588
+OWNER_ID = 123456789
 
 @app.on_message(filters.command(['بوت'], prefixes=""))
 async def Italymusic(client: Client, message: Message):
