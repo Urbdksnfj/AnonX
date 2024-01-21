@@ -1,7 +1,6 @@
 from pyrogram import Client, filters, raw, utils
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, Message, User, ChatPrivileges, ReplyKeyboardRemove, CallbackQuery
 from pyrogram import enums
-from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from pyrogram.enums import ChatType, ChatMemberStatus, ParseMode, ChatMemberStatus
 import aiohttp
 import asyncio
