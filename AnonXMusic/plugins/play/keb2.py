@@ -169,7 +169,18 @@ def forward(client: Client, message: Message):
   elif rank == "kicked":
    app.send_message(chat_id,"• رتبتك هي : محظور")
 
-
+@app.on_message(filters.command(['استيكر'], prefixes=""))
+async def sticker_id(_, message: Message):
+    reply = message.reply_to_message
+    if not reply:
+        return await message.reply("**رد علي الملصق لجلب الكود 🤗⚡**")
+    if not reply.sticker:
+        return await message.reply("**رد علي الملصق لجلب الكود 🤗⚡**")
+    await message.reply_text(f"<b>تفضل عزيزي المطور هذا هو id الاستيكر الحالي </b> \n`{reply.sticker.file_id}`"),
+              ],
+            ]
+        ),
+    )
 
 @app.on_message(filters.command("✭ لغة البوت") & filters.private & SUDOERS)
 async def italy(client: Client, message: Message):
