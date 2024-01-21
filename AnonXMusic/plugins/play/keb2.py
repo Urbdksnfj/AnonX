@@ -10,21 +10,36 @@ from pyrogram import enums
 from typing import Union, List, Iterable
 
 
+REPLY_MESSAGE = "**🧑🏻‍✈️︙اهلا بك بك عزيزي العضو ♥️**\n**⤵️︙ اليـكـ كيب الاعضاء الخاص بسورس المرتجل**"
+
+REPLY_MESSAGE_BUTTONS = [
+    [
+             ("السورس"),                   
+             ("قسم التفعيل والتعطيل")
+
+          ],
+          [
+             ("قسم التعيين"),
+              ("قسم البوت")
+          ],
+          [
+             ("قسم المساعد"),
+             ("قسم الاذاعه")
+          ],
+          [
+             ("تحديث البوت"),
+             ("الغاء الامر")
+    ]
+]
+
 @Client.on_message(filters.command(["/start","رجوع للقائمة الرئيسيه"], ""))
 async def start(client: Client, message: Message):
- if not message.chat.type == enums.ChatType.PRIVATE:
-    if await joinch(message):
-            return
- bot_username = client.me.username
- dev = await get_dev(bot_username)
- nn = await get_dev_name(client, bot_username)
- if message.chat.id == dev or message.chat.username in OWNER:
-   kep = ReplyKeyboardMarkup([
-["السورس","قسم التفعيل والتعطيل"],
-["قسم التعيين","قسم البوت"],
-["قسم المساعد","قسم الاذاعه"],
-["تحديث البوت","الغاء الامر"]], resize_keyboard=True)
-   return await message.reply_text("**♪ اهلا بك ، عزيزي المطور الاساسي  💎 .**", reply_markup=kep,quote=True)
+  text = REPLY_MESSAGE
+    reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
+    await message.reply(
+        text=text,
+        reply_markup=reply_markup
+    )
 
 @Client.on_message(filters.command(["الاحصائيات"], ""))
 async def analysis(client: Client, message: Message):
