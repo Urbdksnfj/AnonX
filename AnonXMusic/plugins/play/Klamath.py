@@ -2,7 +2,6 @@ import asyncio
 import random
 from pyrogram import filters, Client
 from pyrogram.types import Message
-from strings.filters import command
 from AnonXMusic import app
 import config
 
