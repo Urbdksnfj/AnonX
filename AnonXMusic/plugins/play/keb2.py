@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 import re
 
 
-@app.on_message(filters.command(["كيب", "✭ رجوع"]) & SUDOERS)
+@app.on_message(filters.command(["كيب", "✭ رجوع"], "") & SUDOERS)
 
 async def crsourceowner(client: Client, message: Message):
     text = REPLY_MESSAGE
