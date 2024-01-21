@@ -1,5 +1,7 @@
 from pyrogram import Client, filters, raw, utils
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, Message, User, ChatPrivileges, ReplyKeyboardRemove, CallbackQuery
+from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove, Message, ChatJoinRequest
 from pyrogram import enums
 from pyrogram.enums import ChatType, ChatMemberStatus, ParseMode, ChatMemberStatus
 import aiohttp
