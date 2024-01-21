@@ -11,7 +11,7 @@ from typing import Union, List, Iterable
 
 
 @Client.on_message(filters.command(["/start","رجوع للقائمة الرئيسيه"], ""))
-async def start(client, message):
+async def start(client: Client, message: Message):
  if not message.chat.type == enums.ChatType.PRIVATE:
     if await joinch(message):
             return
