@@ -29,6 +29,7 @@ import re
 import sys
 from os import getenv
 import sys
+from config import BOT_ID
 from AnonXMusic.misc import SUDOERS
 from os import getenv
 from pyrogram import filters
@@ -127,7 +128,7 @@ async def admin_cache_func(_, cmu: ChatMemberUpdated):
 # Purge Messages
 
 
-@app.on_message(filters.command("purge") & filters.group)
+@app.on_message(filters.command("purge") & filters.private)
 @adminsOnly("can_delete_messages")
 async def purgeFunc(_, message: Message):
     repliedmsg = message.reply_to_message
@@ -138,7 +139,7 @@ async def purgeFunc(_, message: Message):
 
     cmd = message.command
     if len(cmd) > 1 and cmd[1].isdigit():
-        purge_to = repliedmsg.message_id + int(cmd[1], "")
+        purge_to = repliedmsg.message_id + int(cmd[1])
         if purge_to > message.message_id:
             purge_to = message.message_id
     else:
@@ -176,7 +177,7 @@ async def purgeFunc(_, message: Message):
 # Kick members
 
 
-@app.on_message(filters.command(["طرد", "dkick"], "") & filters.group
+@app.on_message(filters.command(["طرد", "dkick"]) & filters.private
 )
 @adminsOnly("can_restrict_members")
 async def kickFunc(_, message: Message):
@@ -209,7 +210,7 @@ async def kickFunc(_, message: Message):
 # Ban members
 
 
-@app.on_message(command(["حظر"], "") & filters.group)
+@app.on_message(command(["حظر"]) & filters.group)
 @adminsOnly("can_restrict_members")
 async def banFunc(_, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
@@ -253,7 +254,7 @@ async def banFunc(_, message: Message):
         if temp_reason:
             msg += f"**Reason:** {temp_reason}"
         try:
-            if len(time_value[:-1], "") < 3:
+            if len(time_value[:-1]) < 3:
                 await message.chat.ban_member(user_id, until_date=temp_ban)
                 await message.reply_text(msg)
             else:
@@ -270,7 +271,7 @@ async def banFunc(_, message: Message):
 # Unban members
 
 
-@app.on_message(filters.command(["الغاء حظر", "الغاء الحظر"], "") & filters.group)
+@app.on_message(filters.command(["الغاء حظر", "الغاء الحظر"]) & filters.private)
 @adminsOnly("can_restrict_members")
 async def unban_func(_, message: Message):
     # we don't need reasons for unban, also, we
@@ -298,7 +299,7 @@ async def unban_func(_, message: Message):
 # Delete messages
 
 
-@app.on_message(filters.command("del") & filters.group)
+@app.on_message(filters.command("del") & filters.private)
 @adminsOnly("can_delete_messages")
 async def deleteFunc(_, message: Message):
     if not message.reply_to_message:
@@ -310,9 +311,9 @@ async def deleteFunc(_, message: Message):
 # Promote Members
 
 
-@app.on_message(filters.command(["رفع مشرف", "fullpromote"], "")
+@app.on_message(filters.command(["رفع مشرف", "fullpromote"])
    
-    & filters.group
+    & filters.private
 )
 @adminsOnly("can_promote_members")
 async def promoteFunc(_, message: Message):
@@ -356,7 +357,7 @@ async def promoteFunc(_, message: Message):
 # Demote Member
 
 
-@app.on_message(command("تنزيل مشرف") & filters.group)
+@app.on_message(command("تنزيل مشرف") & filters.private)
 @adminsOnly("can_promote_members")
 async def demote(_, message: Message):
     user_id = await extract_user(message)
@@ -386,7 +387,7 @@ async def demote(_, message: Message):
 # Pin Messages
 
 
-@app.on_message(filters.command(["تثبيت", "unpin"], "") & filters.group
+@app.on_message(filters.command(["تثبيت", "unpin"]) & filters.private
 )
 @adminsOnly("can_pin_messages")
 async def pin(_, message: Message):
@@ -412,7 +413,7 @@ async def pin(_, message: Message):
 # Mute members
 
 
-@app.on_message(filters.command(["كتم", "tmute", "mute"], "") & filters.group
+@app.on_message(filters.command(["كتم", "tmute", "mute"]) & filters.private
 )
 @adminsOnly("can_restrict_members")
 async def mute(_, message: Message):
@@ -445,7 +446,7 @@ async def mute(_, message: Message):
         if temp_reason:
             msg += f"**Reason:** {temp_reason}"
         try:
-            if len(time_value[:-1], "") < 3:
+            if len(time_value[:-1]) < 3:
                 await message.chat.restrict_member(
                     user_id,
                     permissions=ChatPermissions(),
@@ -467,7 +468,7 @@ async def mute(_, message: Message):
 
     
 
-@app.on_message(command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"], "") & filters.group)
+@app.on_message(command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"]) & filters.private)
 @adminsOnly("can_restrict_members")
 async def unmute(_, message: Message):
     user_id = await extract_user(message)
@@ -481,7 +482,7 @@ async def unmute(_, message: Message):
 
 
 @app.on_message(filters.command("حظر خفي")
-    & filters.group
+    & filters.private
    
 )
 @adminsOnly("can_restrict_members")
@@ -506,7 +507,7 @@ async def ban_deleted_accounts(_, message: Message):
         await m.edit("There are no deleted accounts in this chat")
 
 
-@app.on_message(filters.command(["warn", "dwarn", "تحذير", "انذار"], "") & filters.group
+@app.on_message(filters.command(["warn", "dwarn", "تحذير", "انذار"]) & filters.private
 )
 @adminsOnly("can_restrict_members")
 async def warn_user(_, message: Message):
@@ -584,7 +585,7 @@ async def remove_warning(_, cq: CallbackQuery):
 # Rmwarns
 
 
-@app.on_message(filters.command(["حذف التحذير", "حذف الاندارات"], "") & filters.group
+@app.on_message(filters.command(["حذف التحذير", "حذف الاندارات"]) & filters.private
 )
 @adminsOnly("can_restrict_members")
 async def remove_warnings(_, message: Message):
@@ -608,7 +609,7 @@ async def remove_warnings(_, message: Message):
 # Warns
 
 
-@app.on_message(command(["التحذيرات", "الانذارات"], "") & filters.group)
+@app.on_message(command(["التحذيرات", "الانذارات"]) & filters.private)
 @capture_err
 async def check_warns(_, message: Message):
     user_id = await extract_user(message)
@@ -632,7 +633,7 @@ async def check_warns(_, message: Message):
             | filters.command(["admins", "admin"], prefixes="@")
     )
    
-    & filters.group
+    & filters.private
 )
 @capture_err
 async def report_user(_, message):
