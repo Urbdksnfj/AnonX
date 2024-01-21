@@ -13,7 +13,7 @@ from pyrogram import filters, Client
 
 hmses = {}
 
-@app.on_message(filters.reply & filters.command(["همسه"], "") & filters.group)
+@app.on_message(filters.command(["همسه"], "") & filters.group)
 def reply_with_link(client, message):
     user_id = message.reply_to_message.from_user.id
     my_id = message.from_user.id
