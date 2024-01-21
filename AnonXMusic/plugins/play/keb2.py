@@ -336,7 +336,15 @@ async def italy(client: Client, message: Message):
             ]
         ),
     )
-
+    
+@app.on_message(filters.command("✭ قـفـل الـكـيـبـورد") 
+& filters.private
+)
+async def upbkgt(client: Client, message: Message):
+    await message.reply_text(
+        text="""تم حذف الكيبورد بنجاح""",
+        reply_markup=ReplyKeyboardRemove()
+    )
 
 @app.on_message(filters.regex("༺┉⊶﴿♡   𝙰𝙻𝙼𝙾𝚁𝚃𝙰𝙶𝙴𝙻 ĶËŸBÖÄŖĐ ♡﴾⊷┉༻") & filters.private & SUDOERS)
 async def italy(client: Client, message: Message):
@@ -353,15 +361,4 @@ async def italy(client: Client, message: Message):
                 ],
             ]
         ),
-    )
-
-
-
-@app.on_message(filters.command("✭ قـفـل الـكـيـبـورد") 
-& filters.private
-)
-async def upbkgt(client: Client, message: Message):
-    await message.reply_text(
-        text="""تم حذف الكيبورد بنجاح""",
-        reply_markup=ReplyKeyboardRemove()
     )
