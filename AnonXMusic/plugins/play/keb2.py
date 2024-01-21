@@ -206,7 +206,7 @@ sudo_keyboard = ReplyKeyboardMarkup([
 
 def is_user(id):
 	result = True
-	file =  json.loads(open(f"Users{bot_id}.json","r"))
+	file =  json.loads(open(f"user{bot_id}.json","r"))
 	for line in file:
 		if line.strip()==id:
 			result = True
@@ -271,7 +271,7 @@ def is_group(id):
 	return result
 
 def add_user(id):
-	file = open(f"Users{bot_id}.json","a")
+	file = open(f"user{bot_id}.json","a")
 	file.write("{}\n".format(id))
 
 def show_channel() -> str:
@@ -402,7 +402,7 @@ async def __count(c:Client,m:Message):
 	sudo = open(f"sudo{bot_id}.json","r").read()
 	
 	if  str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
-		users = len(open(f"Users{bot_id}.json","r").readlines())
+		user = len(open(f"user{bot_id}.json","r").readlines())
 		groups = len(open(f"groups{bot_id}.json","r").readlines())
 		sudos = len(open(f"sudo{bot_id}.json","r").readlines())
 		main = len(open(f"maindevs{bot_id}.json","r").readlines())
@@ -411,7 +411,7 @@ async def __count(c:Client,m:Message):
 		msg = f"""
 		**◍ Bot Status : **
 			
-		├ users : {users} 
+		├ user : {user} 
 		├ sudos : {sudos} 
 		├ groups : {groups} 
 		├ main sudos : {main} 
@@ -453,13 +453,13 @@ async def __get_copy(c:Client,m:Message):
 	sudo = open(f"sudo{bot_id}.json","r").read()
 	
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
-		users = open(f"Users{bot_id}.json","rb")
+		user = open(f"user{bot_id}.json","rb")
 		groups = open(f"groups{bot_id}.json","rb")
 		band = open(f"band{bot_id}.json","rb")
 		sudos = open(f"sudo{bot_id}.json","rb")
 		main = open(f"maindevs{bot_id}.json","rb")
 		
-		uc = len(open(f"Users{bot_id}.json","r").readlines())
+		uc = len(open(f"user{bot_id}.json","r").readlines())
 		gc = len(open(f"groups{bot_id}.json","r").readlines())
 		bc = len(open(f"band{bot_id}.json","r").readlines())
 		sc = len(open(f"sudo{bot_id}.json","r").readlines())
@@ -469,7 +469,7 @@ async def __get_copy(c:Client,m:Message):
 		time.sleep(3)
 		await cc.delete()
 		try:
-			await m.reply_document(document=users,caption=f"**Bot users : {uc} √**")
+			await m.reply_document(document=user,caption=f"**Bot user : {uc} √**")
 		except:
 			await m.reply("**◍ لم يقم اي عضو بالدخول الي بوتك √**")
 		try:
@@ -477,11 +477,11 @@ async def __get_copy(c:Client,m:Message):
 		except:
 			await m.reply("**◍ لم يتم تفعيل اي مجموعات في بوتك √**")
 		try:
-			await m.reply_document(document=band,caption=f"**Band users : {bc} √**")
+			await m.reply_document(document=band,caption=f"**Band user : {bc} √**")
 		except:
 			await m.reply("**◍ لا يوجد اعضاء محظورين في البوت √**")
 		try:
-			await m.reply_document(document=sudos,caption=f"**Sudo users : {sc} √**")
+			await m.reply_document(document=sudos,caption=f"**Sudo user : {sc} √**")
 		except:
 			await m.reply("**◍ لا يوجد مطورين في البوت √**")
 		try:
@@ -590,7 +590,7 @@ async def get_copy___band(c:Client,m:Message):
 		if lenb == 0:
 			return await l.edit("**◍ لم يتم حظر اي عضو من استخدام البوت √**")
 		await l.delete()
-		await m.reply_document(document=file,caption=f"**Band users {lenb} √")
+		await m.reply_document(document=file,caption=f"**Band user {lenb} √")
 		return
 	return await m.reply("**◍ انت لست مطور في البوت \n√**")
 
@@ -625,7 +625,7 @@ async def ShowMain(c:Client,m:Message):
 		lens = len(open(f"maindevs{bot_id}.json","r").readlines())
 		l = await m.reply("**◍ جاري عرض المطورين الاساسيين √**")
 		x = 1
-		text = "**Bot Main Users **:\n\n"
+		text = "**Bot Main user **:\n\n"
 		for su in file:
 			text += f"{x} - {su}"
 			x += 1
@@ -650,7 +650,7 @@ async def get_MainSudo(c:Client,m:Message):
 		if lenb == 0:
 			return await l.edit("**◍ لم تقم برفع اي مطور اساسي في البوت√**")
 		await l.delete()
-		await m.reply_document(document=file,caption=f"**Sudo Main Users {lenb} √")
+		await m.reply_document(document=file,caption=f"**Sudo Main user {lenb} √")
 		return
 	return await m.reply("**◍ انت لست مطور في البوت \n√**")
 	
@@ -683,7 +683,7 @@ async def __show_sudos(c:Client,m:Message):
 		lens = len(open(f"sudo{bot_id}.json","r").readlines())
 		l = await m.reply("**◍ جاري عرض المطورين √**")
 		x = 1
-		text = "**Bot sudo Users **:\n\n"
+		text = "**Bot sudo user **:\n\n"
 		for su in file:
 			text += f"{x} - {su}"
 			x += 1
@@ -724,36 +724,36 @@ async def get_copy_Sudo(c:Client,m:Message):
 		if lenb == 0:
 			return await l.edit("**◍ لم تقم برفع اي مطور في البوت √**")
 		await l.delete()
-		await m.reply_document(document=file,caption=f"**Sudo users {lenb} √")
+		await m.reply_document(document=file,caption=f"**Sudo user {lenb} √")
 		return
 	return await m.reply("**◍ انت لست مطور في البوت \n√**")	
 	
 #-------------------NormalUser-------------------------
 
 @app.on_message(filters.command("^عرض الاعضاء$","")&filters.private)
-async def show_users(c:Client,m:Message):
+async def show_user(c:Client,m:Message):
 	user = m.from_user.id
 	mainSudo = open(f"maindevs{bot_id}.json","r").read()
 	mainSudoVII = open(f"maindevsVII{bot_id}.json","r").read()
 	sudo = open(f"sudo{bot_id}.json","r").read()
 	
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
-		users = open(f"Users{bot_id}.json","r")
+		user = open(f"user{bot_id}.json","r")
 		x = 1
-		text = "**Bot Users **: \n\n"
-		for us in users:
+		text = "**Bot user **: \n\n"
+		for us in user:
 			text += f"{x} - {us} \n"
 			x+=1
 		i = await m.reply("**◍ جارى عرض الاعضاء √**")
 		time.sleep(.5)
-		lenm = len(open(f"Users{bot_id}.json","r").readlines())
+		lenm = len(open(f"user{bot_id}.json","r").readlines())
 		if lenm == 0:
 			return await i.edit("**◍ لم يقم اي عضو بالدخول للبوت √**")
 		return await i.edit(text=text)
 	return await m.reply("**◍ انت لست مطور في البوت \n√**")
 
 @app.on_message(filters.command("^نسخه الاعضاء$","")&filters.private)
-async def __get_users_copy(c:Client,m:Message):
+async def __get_user_copy(c:Client,m:Message):
 	user = m.from_user.id
 	mainSudo = open(f"maindevs{bot_id}.json","r").read()
 	mainSudoVII = open(f"maindevsVII{bot_id}.json","r").read()
@@ -762,17 +762,17 @@ async def __get_users_copy(c:Client,m:Message):
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
 		l = await m.reply("**◍ جاري سحب نسخه للاعضاء √**")
 		time.sleep(2)
-		lenu = len(open(f"Users{bot_id}.json","r").readlines())
-		users = open(f"Users{bot_id}.json","rb")
+		lenu = len(open(f"user{bot_id}.json","r").readlines())
+		user = open(f"user{bot_id}.json","rb")
 		if lenu == 0:
 			return await l.edit("**◍ لم يقم اي عضو بالدخول الي البوت √**")
 		await l.delete()
-		await m.reply_document(document=users,caption=f"**Bot users {lenu} √**")
+		await m.reply_document(document=user,caption=f"**Bot user {lenu} √**")
 		return
 	return await m.reply("**◍ انت لست مطور في البوت \n√**")
 
 @app.on_message(filters.command("^عدد الاعضاء$","")&filters.private)
-async def countofusers(c:Client,m:Message):
+async def countofuser(c:Client,m:Message):
 	user = m.from_user.id
 	mainSudo = open(f"maindevs{bot_id}.json","r").read()
 	mainSudoVII = open(f"maindevsVII{bot_id}.json","r").read()
@@ -780,7 +780,7 @@ async def countofusers(c:Client,m:Message):
 	
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
 		l = await m.reply("**◍ جاري حساب عدد الاعضاء √**")
-		lens = len(open(f"Users{bot_id}.json","r").readlines())
+		lens = len(open(f"user{bot_id}.json","r").readlines())
 		time.sleep(.5)
 		if lens == 0:
 			return await l.edit("**◍ لم يدخل اي عضو للبوت حتي الآن √**")
@@ -984,7 +984,7 @@ async def ShowOwner(c:Client,m:Message):
 		lens = len(open(f"maindevsVII{bot_id}.json","r").readlines())
 		l = await m.reply("**◍ جاري عرض المطورين الاساسيين √**")
 		x = 1
-		text = "**Bot Owner Users **:\n\n"
+		text = "**Bot Owner user **:\n\n"
 		for su in file:
 			text += f"{x} - {su}"
 			x += 1
@@ -1224,7 +1224,7 @@ async def ShowBan(c:Client,m:Message):
 		lens = len(open(f"band{bot_id}.json","r").readlines())
 		l = await m.reply("**◍ جاري عرض المحظورين√**")
 		x = 1
-		text = "**Bot Ban Users **:\n\n"
+		text = "**Bot Ban user **:\n\n"
 		for su in file:
 			text += f"{x} - {su}"
 			x += 1
@@ -1266,11 +1266,11 @@ async def AllCommand__(c,m):
 		if inputText == "الغاء":
 			await m.reply("**تم الغاء الاذاعه**")
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			user = open(f"user{bot_id}.json","r")
 			groups = open(f"groups{bot_id}.json","r")
 			bans = open(f"band{bot_id}.json","r")
 			
-			for user in users:
+			for user in user:
 				try:
 					await ask.copy(int(user),
 					inputText,
@@ -1300,7 +1300,7 @@ url=f"https://t.me/{show_devchannel()}")]])
 				except:
 					pass
 				
-			x1 = len(open(f"Users{bot_id}.json","r").readlines())
+			x1 = len(open(f"user{bot_id}.json","r").readlines())
 			x2 = len(open(f"band{bot_id}.json","r").readlines())
 			x3 = len(open(f"groups{bot_id}.json","r").readlines())
 			
@@ -1327,9 +1327,9 @@ async def memcommands__(c,m:Message):
 			await m.reply("**تم الغاء الاذاعه**")
 		
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			user = open(f"user{bot_id}.json","r")
 			
-			for user in users:
+			for user in user:
 				try:
 					await ask.copy(int(user),
 					inputText, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Source channel",
@@ -1338,7 +1338,7 @@ url=f"https://t.me/{show_devchannel()}")]])
 				except:
 					pass
 			
-			us = len(open(f"Users{bot_id}.json","r").readlines())
+			us = len(open(f"user{bot_id}.json","r").readlines())
 			await app.send_message(chat,f"**تم الاذاعه الي **: \n {us} من الاعضاء")
 
 @app.on_message(filters.command("اذاعه المحظورين",prefixes=""))
@@ -1422,11 +1422,11 @@ async def AllCommand__(c,m):
 		if inputText == "الغاء":
 			await m.reply("**تم الغاء الاذاعه**")
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			user = open(f"user{bot_id}.json","r")
 			groups = open(f"groups{bot_id}.json","r")
 			bans = open(f"band{bot_id}.json","r")
 			
-			for user in users:
+			for user in user:
 				try:
 					await ask.forward(int(user)
 					)
@@ -1447,7 +1447,7 @@ async def AllCommand__(c,m):
 				except:
 					pass
 				
-			x1 = len(open(f"Users{bot_id}.json","r").readlines())
+			x1 = len(open(f"user{bot_id}.json","r").readlines())
 			x2 = len(open(f"band{bot_id}.json","r").readlines())
 			x3 = len(open(f"groups{bot_id}.json","r").readlines())
 			
@@ -1472,16 +1472,16 @@ async def memcommands__(c,m):
 			await m.reply("**تم الغاء الاذاعه بالتوجيه**")
 		
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			user = open(f"user{bot_id}.json","r")
 			
-			for user in users:
+			for user in user:
 				try:
 					await ask.forward (int(user)
 					)
 				except:
 					pass
 			
-			us = len(open(f"Users{bot_id}.json","r").readlines())
+			us = len(open(f"user{bot_id}.json","r").readlines())
 			await app.send_message(chat,f"**تم الاذاعه بالتوجيه الي **:\n {us} من الاعضاء")
 
 @app.on_message(filters.command("توجيه محظورين",prefixes=""))
