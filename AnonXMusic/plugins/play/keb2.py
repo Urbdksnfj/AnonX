@@ -37,7 +37,7 @@ REPLY_MESSAGE = "**👋︙مـرحـبـا بـك عـزيـزي الـمـطـ�
 
 REPLY_MESSAGE_BUTTONS = [
     [
-        ("✭ WELCOME IN SOUCE  𝙰𝙻𝙼𝙾𝚁𝚃𝙰𝙶𝙴𝙻 ✭"),
+        ("✭ WELCOME IN SOUCE  ALMORTAGEL ✭"),
     ],
     [
         ("✭ قسم الاذاعه"),
@@ -84,7 +84,7 @@ async def cast(client: app, message):
 def reply_to_HEY(Client, message):
     message.reply_photo(
         photo=f"https://t.me/Almortagel_12",
-        caption=f"""[ َِ.𝘀𝗼𝘂𝗿𝗰𝗲  𝙰𝙻𝙼𝙾𝚁𝚃𝙰𝙶𝙴𝙻.〙𝘁𝗵𝗲 𝗳 𝗶𝗿𝘀𝘁 𝗰𝗵𝗲𝗿𝘂𝗯 𝗶𝗻 𝘁𝗵𝗲 𝗻𝗲𝘅𝘁 𝗽𝗲𝗼𝗽𝗹𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗲𝗱 𝗵 𝗶𝘀 𝗸𝗶𝗻𝗴𝘀 𝗮𝗻𝗱 𝗿𝗮𝗻𝗸 𖥳𝗰𝗿𝗲𝗮𝘁𝗼𝗿𝘀 𝗼𝗳 𝗽𝘂𝘀𝗵𝗰𝗵𝗲𝗻𝗸𝘆♬♪](https://t.me/AlmortagelTech)""",
+        caption=f"""𝘀𝗼𝘂𝗿𝗰𝗲  𝙰𝙻𝙼𝙾𝚁𝚃𝙰𝙶𝙴𝙻.〙𝘁𝗵𝗲 𝗳 𝗶𝗿𝘀𝘁 𝗰𝗵𝗲𝗿𝘂𝗯 𝗶𝗻 𝘁𝗵𝗲 𝗻𝗲𝘅𝘁 𝗽𝗲𝗼𝗽𝗹𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗲𝗱 𝗵 𝗶𝘀 𝗸𝗶𝗻𝗴𝘀 𝗮𝗻𝗱 𝗿𝗮𝗻𝗸 𖥳𝗰𝗿𝗲𝗮𝘁𝗼𝗿𝘀 𝗼𝗳 𝗽𝘂𝘀𝗵𝗰𝗵𝗲𝗻𝗸𝘆""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
@@ -99,7 +99,7 @@ def reply_to_HEY(Client, message):
 def reply_to_HEY(Client, message):
     message.reply_photo(
         photo=f"https://t.me/Almortagel_12",
-        caption=f"""[THIS DEV MAIN SOURCE  𝙰𝙻𝙼𝙾𝚁𝚃𝙰𝙶𝙴𝙻 ](https://t.me/Almortagel_12)""",
+        caption=f"""THIS DEV MAIN SOURCE  ALMORTAGEL""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
@@ -117,7 +117,7 @@ def reply_to_HEY(Client, message):
 def reply_to_HEY(Client, message):
     message.reply_photo(
         photo=f"https://t.me/AlmortagelTech",
-        caption=f"""[لـطـلـب ســورس مـيـوزك خـاص بــك او مــيـزه في ســورس مـيـوزك لا تـتـردد فـي الـتـواصـل مـعـي مـن خـلال الـزر فـي الأسـفـل ♬♪](https://t.me/AlmortagelTech)""",
+        caption=f"""لـطـلـب ســورس مـيـوزك خـاص بــك او مــيـزه في ســورس مـيـوزك لا تـتـردد فـي الـتـواصـل مـعـي مـن خـلال الـزر فـي الأسـفـل ♬♪""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
@@ -336,15 +336,7 @@ async def italy(client: Client, message: Message):
             ]
         ),
     )
-    
-@app.on_message(filters.command("✭ قـفـل الـكـيـبـورد") 
-& filters.private
-)
-async def upbkgt(client: Client, message: Message):
-    await message.reply_text(
-        text="""تم حذف الكيبورد بنجاح""",
-        reply_markup=ReplyKeyboardRemove()
-    )
+
 
 @app.on_message(filters.regex("༺┉⊶﴿♡   𝙰𝙻𝙼𝙾𝚁𝚃𝙰𝙶𝙴𝙻 ĶËŸBÖÄŖĐ ♡﴾⊷┉༻") & filters.private & SUDOERS)
 async def italy(client: Client, message: Message):
@@ -359,6 +351,20 @@ async def italy(client: Client, message: Message):
                     InlineKeyboardButton(
                         "⸢  𝙰𝙻𝙼𝙾𝚁𝚃𝙰𝙶𝙴𝙻 ⸥", url=f"https://t.me/AlmortagelTech"),
                 ],
+            ]
+        ),
+    )
+
+
+@app.on_callback_query(filters.regex("✭ قـفـل الـكـيـبـورد") & filters.private & SUDOERS)
+async def italy(_, query: CallbackQuery):
+   await callback_query.edit_message_caption(caption =f"""**♬ تــم حــذف الــڪــيــبــورد .**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "⸢ 𝐍𝐄𝐎𝐍 𝐒𝐎𝐔𝐑𝐂𝐄 ⸥", url=f"https://t.me/SOURCE_NEON"),
+               ],
             ]
         ),
     )
