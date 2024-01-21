@@ -364,5 +364,4 @@ async def upbkgt(client: Client, message: Message):
     await message.reply_text(
         text="""تم حذف الكيبورد بنجاح""",
         reply_markup=ReplyKeyboardRemove()
-        ),
     )
