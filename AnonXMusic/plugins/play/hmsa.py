@@ -12,7 +12,7 @@ def almortagel(client, message):
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("《🪳》", callback_data="almortagel")]])
     )
 
-@app.on_callback_query(filters.command(["almortagel"]))
+@app.on_callback_query(filters.command("almortagel"))
 def almortagely(client, callback_query):
     video = "https://graph.org/file/fb6ae3a43f73ef2aee8a9.mp4"
     callback_query.edit_message_media(
@@ -27,7 +27,7 @@ def zeqe(client, message):
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("《🐖》", callback_data="almortagell")]])
     )
 
-@app.on_callback_query(filters.command(["almortagell"]))
+@app.on_callback_query(filters.command("almortagell"))
 def zeqep(client, callback_query):
     video = "https://graph.org/file/274b6971aeb298bdcd6fe.mp4"
     callback_query.edit_message_media(
@@ -41,3 +41,10 @@ def namlo(client, message):
         photo="https://graph.org/file/bd1024b2f29996675596d.jpg",
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("《🦗》", callback_data="almortagelll")]])
     )
+
+@app.on_callback_query(filters.command("almortagelll"))
+def namlop(client, callback_query):
+    video = "https://graph.org/file/2d20cb201e06612588136.mp4"
+    callback_query.edit_message_media(
+        media=InputMediaVideo(media=video, caption=f"⚡هو المعفن اللى صحي النمله يجماعه😂👇\n\n{callback_query.from_user.first_name}")
+    )        
