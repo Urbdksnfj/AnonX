@@ -1,7 +1,8 @@
+import asyncio
+import config
 from pyrogram import * 
 from pyrogram.types import * 
 from AnonXMusic import app
-from strings.filters import command
 import time
 from config import BOT_TOKEN, OWNER_ID
 import requests
@@ -335,7 +336,7 @@ InlineKeyboardButton("Ch",url=f"https://t.me/{show_devchannel()}")
 
 
 
-@app.on_message(filters.command(["almortagel"], "")&filters.private)
+@app.on_message(filters.command(["Almortagel"], "")&filters.private)
 async def app_start(c:Client,m:Message):
 	do = requests.get(f"https://api.telegram.org/bot{token}/getChatMember?chat_id=@{show_channel()}&user_id={m.from_user.id}").text
 	user = m.from_user.id
