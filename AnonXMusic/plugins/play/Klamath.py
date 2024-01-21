@@ -2,6 +2,7 @@ import asyncio
 import random
 from pyrogram import filters, Client
 from pyrogram.types import Message
+from strings.filters import command
 from AnonXMusic import app
 import config
 
@@ -323,7 +324,7 @@ correct_answers = [
 
 current_question_index = 0
 
-@app.on_message(command(["كلمه", "", ""]))
+@app.on_message(filters.command(["كلمه"], ""))
 async def game_handler(client: Client, message: Message):
     global current_question_index
 
