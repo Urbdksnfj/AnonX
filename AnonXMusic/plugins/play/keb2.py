@@ -5,7 +5,6 @@ from pyrogram import filters
 from AnonXMusic import app
 from config import OWNER_ID
 from AnonXMusic.misc import SUDOERS
-from strings.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
