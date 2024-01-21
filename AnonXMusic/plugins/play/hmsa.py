@@ -41,7 +41,7 @@ def hms_start(client, message):
       ]])
     )
 
-@app.on_message(& filters.command(["ALhms"], "") & filters.private)
+@app.on_message(filters.command(["ALhms"], "") & filters.private)
 def send_hms(client, message):
   
   global waiting_for_hms
