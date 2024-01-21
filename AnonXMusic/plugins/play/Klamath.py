@@ -166,8 +166,6 @@ txt = [
 ]
 
 correct_answers = [
-    txt = [
-
     "بارده",
   
     "اجيت",
