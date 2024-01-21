@@ -2,7 +2,6 @@ from pyrogram import Client, filters, raw, utils
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, Message, User, ChatPrivileges, ReplyKeyboardRemove, CallbackQuery
 from pyrogram import enums
 from pyrogram.enums import ChatType, ChatMemberStatus, ParseMode, ChatMemberStatus
-from AnonXMusic.play import (logs, join_call)
 from AnonXMusic.Data import (get_userbot, get_dev, get_call, get_group, get_channel)
 import aiohttp
 import asyncio
