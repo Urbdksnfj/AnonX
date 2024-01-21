@@ -176,14 +176,10 @@ async def sticker_id(_, message: Message):
         return await message.reply("**رد علي الملصق لجلب الكود 🤗⚡**")
     if not reply.sticker:
         return await message.reply("**رد علي الملصق لجلب الكود 🤗⚡**")
-    await message.reply_text(f"<b>تفضل عزيزي المطور هذا هو id الاستيكر الحالي </b> \n`{reply.sticker.file_id}`"),
-              ],
-            ]
-        ),
-    )
-
+    await message.reply_text(f"<b>تفضل عزيزي المطور هذا هو id الاستيكر الحالي </b> \n`{reply.sticker.file_id}`")
+             
 @app.on_message(filters.command("✭ لغة البوت") & filters.private & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -201,7 +197,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_message(filters.command("✭ الـيـوتـيـوب") & filters.private & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -240,7 +236,7 @@ async def yas(client, message):
 
 
 @app.on_message(filters.command("✭ المحـظـوريـن") & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -259,7 +255,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_message(filters.command("✭ مـطـوريـنـك") & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -277,7 +273,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_message(filters.command("✭ ايـديـهـك") & filters.private & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -297,7 +293,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_message(filters.command(" حـظـر الـجـروبـات") & filters.private & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -315,7 +311,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_message(filters.command("✭ جـروبـاتـك النـشـطـه") & filters.private & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -333,7 +329,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_message(filters.command("✭ حـظـر الـجـروبـات") & filters.private & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -351,7 +347,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_message(filters.command("༺┉⊶﴿♡  ALMORTAGEL ĶËŸBÖÄŖĐ ♡﴾⊷┉༻") & filters.private & SUDOERS)
-async def italy(client: Client, message: Message):
+async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
@@ -371,7 +367,7 @@ async def italy(client: Client, message: Message):
 
 
 @app.on_callback_query(filters.command("✭ قـفـل الـكـيـبـورد") & filters.private & SUDOERS)
-async def italy(_, query: CallbackQuery):
+async def almortagel(_, query: CallbackQuery):
    await callback_query.edit_message_caption(caption =f"""**♬ تــم حــذف الــڪــيــبــورد .**""",
         reply_markup=InlineKeyboardMarkup(
             [
