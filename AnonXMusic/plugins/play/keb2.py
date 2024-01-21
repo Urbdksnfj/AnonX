@@ -1,14 +1,15 @@
 import asyncio
+from AnonXMusic.plugins.xgame import callback_query
 import config
 from pyrogram import Client, filters
 from pyrogram import filters
-from AnonX import app
+from AnonXMusic import app
 from config import OWNER_ID
-from AnonX.misc import SUDOERS
+from AnonXMusic.misc import SUDOERS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
-from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from AnonX.misc import SUDOERS
+from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from AnonXMusic.misc import SUDOERS
 import sys
 from os import getenv
 
@@ -22,7 +23,7 @@ from dotenv import load_dotenv
 import re
 
 
-@app.on_message(filters.command(["كيب", "✭ رجوع"], "") & SUDOERS)
+@app.on_message(filters.command(["كيب", "✭ رجوع"]) & SUDOERS)
 
 async def crsourceowner(client: Client, message: Message):
     text = REPLY_MESSAGE
@@ -248,7 +249,7 @@ async def italy(client: Client, message: Message):
                     
 
 
-@app.on_message(filters.command("✭ مـطـوريـنـك") & filters.private & SUDOERS)
+@app.on_message(filters.command("✭ مـطـوريـنـك") & SUDOERS)
 async def italy(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
