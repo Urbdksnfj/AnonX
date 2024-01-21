@@ -19,6 +19,7 @@ token = (BOT_TOKEN)
 OWNER_ID = getenv("OWNER_ID")
 OWNER_USER_NAME = getenv("OWNER_USER_NAME")
 bot_id = app.bot_token.split(":")[0]
+owner = (OWNER_ID)
 
 
 try:
