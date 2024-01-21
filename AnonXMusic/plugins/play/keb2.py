@@ -3,7 +3,6 @@ import config
 from pyrogram import * 
 from pyrogram.types import * 
 from AnonXMusic import app
-from strings.filters import command
 import time
 from config import BOT_TOKEN, OWNER_ID
 import requests
