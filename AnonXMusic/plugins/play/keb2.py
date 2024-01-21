@@ -20,9 +20,9 @@ OWNER_USER_NAME = getenv("OWNER_USER_NAME")
 
 
 try:
-	open(f"Users{bot_id}.json","r")
+	open(f"user{bot_id}.json","r")
 except FileNotFoundError:
-	open(f"Users{bot_id}.json","w")
+	open(f"user{bot_id}.json","w")
 try:
 	open(f"sudo{bot_id}.json","r")
 except FileNotFoundError:
