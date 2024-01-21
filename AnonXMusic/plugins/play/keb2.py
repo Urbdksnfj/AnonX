@@ -146,7 +146,7 @@ def reply_to_HEY(Client, message):
 
 
 
-@app.on_message(filters.command("رتبتي") & filters.group)
+@app.on_message(filters.command(["رتبتي"], "") & filters.group)
 def forward(client: Client, message: Message):
   chat_id = message.chat.id
   user_id = message.from_user.id
@@ -209,7 +209,7 @@ async def italy(client: Client, message: Message):
     )
 
 
-@app.on_message(filers.command(["مطور البوت","مطور"])
+@app.on_message(filters.command(["مطور البوت","مطور"], "")
     & filters.group
 )
 async def yas(client, message):
