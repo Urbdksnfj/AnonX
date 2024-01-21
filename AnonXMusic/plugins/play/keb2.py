@@ -9,6 +9,7 @@ from pyrogram.errors import FloodWait
 from pyrogram import enums
 from typing import Union, List, Iterable
 
+
 @Client.on_message(filters.command(["/start","رجوع للقائمة الرئيسيه"], ""))
 async def start(client, message):
  if not message.chat.type == enums.ChatType.PRIVATE:
@@ -23,6 +24,7 @@ async def start(client, message):
 ["قسم التعيين","قسم البوت"],
 ["قسم المساعد","قسم الاذاعه"],
 ["تحديث البوت","الغاء الامر"]], resize_keyboard=True)
+   return await message.reply_text("**♪ اهلا بك ، عزيزي المطور الاساسي  💎 .**", reply_markup=kep,quote=True)
 
 @Client.on_message(filters.command(["الاحصائيات"], ""))
 async def analysis(client: Client, message: Message):
