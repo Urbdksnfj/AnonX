@@ -6,7 +6,7 @@ import json
 from pyrogram import Client, filters
 from pyrogram import filters
 from AnonXMusic import app
-from config import OWNER_ID
+from config import BOT_TOKEN, OWNER_ID
 from AnonXMusic.misc import SUDOERS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
@@ -15,8 +15,10 @@ from AnonXMusic.misc import SUDOERS
 import sys
 from os import getenv
 
+token = (BOT_TOKEN)
 OWNER_ID = getenv("OWNER_ID")
 OWNER_USER_NAME = getenv("OWNER_USER_NAME")
+bot_id = app.bot_token.split(":")[0]
 
 
 try:
