@@ -17,9 +17,9 @@ OWNER_USER_NAME = getenv("OWNER_USER_NAME")
 
 
 try:
-	open(f"Users{bot_id}.json","r")
+	open(f"Users{bot_username}.json","r")
 except FileNotFoundError:
-	open(f"Users{bot_id}.json","w")
+	open(f"Users{bot_username}.json","w")
 try:
 	open(f"sudo{bot_id}.json","r")
 except FileNotFoundError:
@@ -200,7 +200,7 @@ sudo_keyboard = ReplyKeyboardMarkup([
 
 def is_user(id):
 	result = True
-	file =  json.loads(open(f"Users{bot_id}.json","r"))
+	file =  json.loads(open(f"Users{bot_username}.json","r"))
 	for line in file:
 		if line.strip()==id:
 			result = True
@@ -265,7 +265,7 @@ def is_group(id):
 	return result
 
 def add_user(id):
-	file = open(f"Users{bot_id}.json","a")
+	file = open(f"Users{bot_username}.json","a")
 	file.write("{}\n".format(id))
 
 def show_channel() -> str:
@@ -396,7 +396,7 @@ async def __count(c:Client,m:Message):
 	sudo = open(f"sudo{bot_id}.json","r").read()
 	
 	if  str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
-		users = len(open(f"Users{bot_id}.json","r").readlines())
+		users = len(open(f"Users{bot_username}.json","r").readlines())
 		groups = len(open(f"groups{bot_id}.json","r").readlines())
 		sudos = len(open(f"sudo{bot_id}.json","r").readlines())
 		main = len(open(f"maindevs{bot_id}.json","r").readlines())
@@ -447,13 +447,13 @@ async def __get_copy(c:Client,m:Message):
 	sudo = open(f"sudo{bot_id}.json","r").read()
 	
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
-		users = open(f"Users{bot_id}.json","rb")
+		users = open(f"Users{bot_username}.json","rb")
 		groups = open(f"groups{bot_id}.json","rb")
 		band = open(f"band{bot_id}.json","rb")
 		sudos = open(f"sudo{bot_id}.json","rb")
 		main = open(f"maindevs{bot_id}.json","rb")
 		
-		uc = len(open(f"Users{bot_id}.json","r").readlines())
+		uc = len(open(f"Users{bot_username}.json","r").readlines())
 		gc = len(open(f"groups{bot_id}.json","r").readlines())
 		bc = len(open(f"band{bot_id}.json","r").readlines())
 		sc = len(open(f"sudo{bot_id}.json","r").readlines())
@@ -732,7 +732,7 @@ async def show_users(c:Client,m:Message):
 	sudo = open(f"sudo{bot_id}.json","r").read()
 	
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
-		users = open(f"Users{bot_id}.json","r")
+		users = open(f"Users{bot_username}.json","r")
 		x = 1
 		text = "**Bot Users **: \n\n"
 		for us in users:
@@ -740,7 +740,7 @@ async def show_users(c:Client,m:Message):
 			x+=1
 		i = await m.reply("**◍ جارى عرض الاعضاء √**")
 		time.sleep(.5)
-		lenm = len(open(f"Users{bot_id}.json","r").readlines())
+		lenm = len(open(f"Users{bot_username}.json","r").readlines())
 		if lenm == 0:
 			return await i.edit("**◍ لم يقم اي عضو بالدخول للبوت √**")
 		return await i.edit(text=text)
@@ -756,8 +756,8 @@ async def __get_users_copy(c:Client,m:Message):
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
 		l = await m.reply("**◍ جاري سحب نسخه للاعضاء √**")
 		time.sleep(2)
-		lenu = len(open(f"Users{bot_id}.json","r").readlines())
-		users = open(f"Users{bot_id}.json","rb")
+		lenu = len(open(f"Users{bot_username}.json","r").readlines())
+		users = open(f"Users{bot_username}.json","rb")
 		if lenu == 0:
 			return await l.edit("**◍ لم يقم اي عضو بالدخول الي البوت √**")
 		await l.delete()
@@ -774,7 +774,7 @@ async def countofusers(c:Client,m:Message):
 	
 	if str(user) in mainSudo or str(user) in sudo or str(user) in mainSudoVII or (user) in owner or int(user) == OWNER_ID:
 		l = await m.reply("**◍ جاري حساب عدد الاعضاء √**")
-		lens = len(open(f"Users{bot_id}.json","r").readlines())
+		lens = len(open(f"Users{bot_username}.json","r").readlines())
 		time.sleep(.5)
 		if lens == 0:
 			return await l.edit("**◍ لم يدخل اي عضو للبوت حتي الآن √**")
@@ -1260,7 +1260,7 @@ async def AllCommand__(c,m):
 		if inputText == "الغاء":
 			await m.reply("**تم الغاء الاذاعه**")
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			users = open(f"Users{bot_username}.json","r")
 			groups = open(f"groups{bot_id}.json","r")
 			bans = open(f"band{bot_id}.json","r")
 			
@@ -1294,7 +1294,7 @@ url=f"https://t.me/{show_devchannel()}")]])
 				except:
 					pass
 				
-			x1 = len(open(f"Users{bot_id}.json","r").readlines())
+			x1 = len(open(f"Users{bot_username}.json","r").readlines())
 			x2 = len(open(f"band{bot_id}.json","r").readlines())
 			x3 = len(open(f"groups{bot_id}.json","r").readlines())
 			
@@ -1321,7 +1321,7 @@ async def memcommands__(c,m:Message):
 			await m.reply("**تم الغاء الاذاعه**")
 		
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			users = open(f"Users{bot_username}.json","r")
 			
 			for user in users:
 				try:
@@ -1332,7 +1332,7 @@ url=f"https://t.me/{show_devchannel()}")]])
 				except:
 					pass
 			
-			us = len(open(f"Users{bot_id}.json","r").readlines())
+			us = len(open(f"Users{bot_username}.json","r").readlines())
 			await app.send_message(chat,f"**تم الاذاعه الي **: \n {us} من الاعضاء")
 
 @app.on_message(filters.command("اذاعه المحظورين",prefixes=""))
@@ -1416,7 +1416,7 @@ async def AllCommand__(c,m):
 		if inputText == "الغاء":
 			await m.reply("**تم الغاء الاذاعه**")
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			users = open(f"Users{bot_username}.json","r")
 			groups = open(f"groups{bot_id}.json","r")
 			bans = open(f"band{bot_id}.json","r")
 			
@@ -1441,7 +1441,7 @@ async def AllCommand__(c,m):
 				except:
 					pass
 				
-			x1 = len(open(f"Users{bot_id}.json","r").readlines())
+			x1 = len(open(f"Users{bot_username}.json","r").readlines())
 			x2 = len(open(f"band{bot_id}.json","r").readlines())
 			x3 = len(open(f"groups{bot_id}.json","r").readlines())
 			
@@ -1466,7 +1466,7 @@ async def memcommands__(c,m):
 			await m.reply("**تم الغاء الاذاعه بالتوجيه**")
 		
 		else:
-			users = open(f"Users{bot_id}.json","r")
+			users = open(f"Users{bot_username}.json","r")
 			
 			for user in users:
 				try:
@@ -1475,7 +1475,7 @@ async def memcommands__(c,m):
 				except:
 					pass
 			
-			us = len(open(f"Users{bot_id}.json","r").readlines())
+			us = len(open(f"Users{bot_username}.json","r").readlines())
 			await app.send_message(chat,f"**تم الاذاعه بالتوجيه الي **:\n {us} من الاعضاء")
 
 @app.on_message(filters.command("توجيه محظورين",prefixes=""))
