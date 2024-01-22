@@ -27,6 +27,7 @@ from traceback import format_exc as err
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
 from AnonXMusic.misc import SUDOERS
+from AnonXMusic.core.permissions import admins
 from AnonXMusic.plugins.admin import member_permissions
 
 
@@ -81,7 +82,7 @@ def adminsOnly(permission):
                 return await unauthorised(message, permission, subFunc2)
             # For admins and sudo users
             userID = message.from_user.id
-            permissions = await member_permissions(chat_id: int, user_id: int)
+            permissions = await member_permissions(chat_id, userID)
             if userID not in SUDOERS and permission not in permissions:
                 return await unauthorised(message, permission, subFunc2)
             return await authorised(
