@@ -84,7 +84,7 @@ async def cast(client: app, message):
 def reply_to_HEY(Client, message):
     message.reply_photo(
         photo=f"https://t.me/AlmortagelTech",
-        caption=f"""[ َِ.𝘀𝗼𝘂𝗿𝗰𝗲 ALMORTAGEL.〙𝘁𝗵𝗲 𝗳 𝗶𝗿𝘀𝘁 𝗰𝗵𝗲𝗿𝘂𝗯 𝗶𝗻 𝘁𝗵𝗲 𝗻𝗲𝘅𝘁 𝗽𝗲𝗼𝗽𝗹𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗲𝗱 𝗵 𝗶𝘀 𝗸𝗶𝗻𝗴𝘀 𝗮𝗻𝗱 𝗿𝗮𝗻𝗸 𖥳𝗰𝗿𝗲𝗮𝘁𝗼𝗿𝘀 𝗼𝗳 𝗽𝘂𝘀𝗵𝗰𝗵𝗲𝗻𝗸𝘆♬♪""",
+        caption=f"""𝘀𝗼𝘂𝗿𝗰𝗲 ALMORTAGEL.〙𝘁𝗵𝗲 𝗳 𝗶𝗿𝘀𝘁 𝗰𝗵𝗲𝗿𝘂𝗯 𝗶𝗻 𝘁𝗵𝗲 𝗻𝗲𝘅𝘁 𝗽𝗲𝗼𝗽𝗹𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗲𝗱 𝗵 𝗶𝘀 𝗸𝗶𝗻𝗴𝘀 𝗮𝗻𝗱 𝗿𝗮𝗻𝗸 𖥳𝗰𝗿𝗲𝗮𝘁𝗼𝗿𝘀 𝗼𝗳 𝗽𝘂𝘀𝗵𝗰𝗵𝗲𝗻𝗸𝘆♬♪""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
@@ -198,10 +198,7 @@ async def almortagel(client: Client, message: Message):
 
 @app.on_message(filters.command(["✭ الـيـوتـيـوب"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
-                    await message.reply_text( 
+          await message.reply_text( 
                     f"""**نبذه سريعه عن تحميل من اليوتيوب** : **يتم استخدام هذا الامر لتحميل بشكل مباشر من اليوتيوب **\n**استخدم الامر بهذا الشكل** `تنزيل + اسم الاغنية` **اضغط علي الامر لنسخ والاستخدام**""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -237,9 +234,6 @@ async def yas(client, message):
 
 @app.on_message(filters.command(["✭ المحـظـوريـن"], "") & SUDOERS)
 async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
                     await message.reply_text( 
                     f"""**نبذه سريعه عن قائمه الحظر❌** : **يتم استخدام هذا الامر لعرض من هم المحظورين من تشغيل البوت من قبل المالك او المطورين الذي تم رفعهم🫡**\n**استخدم الامر بهذا الشكل** `قائمه الحظر` **اضغط علي الامر لنسخ والاستخدام**""",
         reply_markup=InlineKeyboardMarkup(
@@ -256,9 +250,6 @@ async def almortagel(client: Client, message: Message):
 
 @app.on_message(filters.command(["✭ مـطـوريـنـك"], "") & SUDOERS)
 async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
                     await message.reply_text( 
                     f"""**نبذه سريعه عن قائمة المطورين👨‍💻** : **يتم استخدام هذا الامر لعرض من هم الذي تم ترقيتهم من قبل مالك البوت🫡**\n**استخدم الامر بهذا الشكل الثانويين **""",
         reply_markup=InlineKeyboardMarkup(
@@ -274,9 +265,6 @@ async def almortagel(client: Client, message: Message):
 
 @app.on_message(filters.command(["✭ ايـديـهـك"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
                     await message.reply_text( 
                     f"""**نبذه سريعه عن الايدي** : **يتم استخدام هذا الامر لعرض الايدي بصورة من طلب الامر لماذا تم عمل هذا الميزه في خاص البوت بدل من المجموعه ؟! : السبب ان بعض الاشخاص الفاشلين يضعون صور اباحيه ويقوم بكتبه امر ايدي عندم يظهر البوت الصوره يقوم بعمل ابلاغ في المجموعه حتي يقوم تليجرام بأغلاق المجموعه لذلك تم نقل الامر في الخاص ووضع امر ايدي ايضا بدون صوره في المجموعه🫡**\n**استخدم الامر بهذا الشكل** `ايدي` **اضغط علي الامر لنسخ والاستخدام**""",
         reply_markup=InlineKeyboardMarkup(
@@ -294,9 +282,6 @@ async def almortagel(client: Client, message: Message):
 
 @app.on_message(filters.command(["✭ حـظـر الـجـروبـات"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
                     await message.reply_text( 
                     f"""**نبذه سريعه عن حظر جـروب**🔒❌ : **هذا الامر يستخدم لحظر الجروب من التشغيل عن طريق اليوزر او الايدي🫡**\n**استخدم الامر بهذا الشكل** `blacklistchat` **اضغط علي الامر لنسخ والاستخدام واتبع التعليمات**""",
         reply_markup=InlineKeyboardMarkup(
@@ -312,9 +297,6 @@ async def almortagel(client: Client, message: Message):
 
 @app.on_message(filters.command(["✭ جـروبـاتـك النـشـطـه"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
                     await message.reply_text( 
                     f"""**نبذه سريعه عن 💡︙جـروبـاتـك النـشـطـه︙💡 : **يتم استخدام هذا الامر لعرض من يقوم بتشغيل البوت الان في المحادثه الصوتية🫡**\n**استخدم الامر بهذا الشكل** `اونلاين` **اضغط علي الامر لنسخ والاستخدام**""",
         reply_markup=InlineKeyboardMarkup(
@@ -327,30 +309,8 @@ async def almortagel(client: Client, message: Message):
         ),
     )
 
-
-@app.on_message(filters.command(["✭ حـظـر الـجـروبـات"], "") & filters.private & SUDOERS)
-async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
-                    await message.reply_text( 
-                    f"""**نبذه سريعه عن حظر جـروب**🔒❌ : **هذا الامر يستخدم لحظر الجروب من التشغيل عن طريق اليوزر او الايدي🫡**\n**استخدم الامر بهذا الشكل** `blacklistchat` **اضغط علي الامر لنسخ والاستخدام واتبع التعليمات**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "⸢ ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ ⸥", url=f"https://t.me/AlmortagelTech"),
-                ],
-            ]
-        ),
-    )
-
-
 @app.on_message(filters.command(["༺┉⊶﴿♡  ALMORTAGEL ĶËŸBÖÄŖĐ ♡﴾⊷┉༻"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
                     await message.reply_text( 
                     f"""**نبذه سريعه عن** ALMORTAGEL ĶËŸBÖÄŖĐ **: **ماهو بيتا كيبورد🤔** **هو اصدار اولي قابل لتعديل في اي وقت قابل الاضافة مميزات واضافة جديد في اي وقت بي اختصار قابل لتحديث ولاضافه في اي وقت**🫡""",
         reply_markup=InlineKeyboardMarkup(
