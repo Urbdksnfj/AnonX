@@ -2,7 +2,10 @@ from pyrogram import Client, filters
 from pyrogram import enums
 from pyrogram.enums import ChatMembersFilter, ChatMemberStatus , ChatType
 from pyrogram.types import ChatPermissions, ChatPrivileges
+from AnonXMusic import app
 import asyncio
+
+
 
 
 
@@ -13,7 +16,7 @@ welcome_enabled = True
 
 
 
-@app.on_message_updated()
+@app.on_chat_member_updated()
 async def welcome(client, chat_member_updated):
     if not welcome_enabled:
         return
