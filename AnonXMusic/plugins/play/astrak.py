@@ -1,33 +1,29 @@
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
-from config import SUPPORT_CHANNEL, CHANNEL_SUDO
+from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardMarkup as Markup, InlineKeyboardButton as Button
+from pyrogram.enums import ChatType
+from pyrogram.errors import UserNotParticipant
 from AnonXMusic import app
 
+channel = "AlmortagelTech"
+async def subscription(_, __: Client, message: Message):
+    user_id = message.from_user.id
+    try: await app.get_chat_member(channel, user_id)
+    except UserNotParticipant: return False
+    return True
+    
+subscribed = filters.create(subscription)
 
-@app.on_message(filters.private, group=-1)
-async def must_join_channel(bot: Client, msg: Message):
-    if not SUPPORT_CHANNEL:  # Not compulsory
-        return
-    try:
-        try:
-            await bot.get_chat_member(CHANNEL_SUDO, msg.from_user.id)
-        except UserNotParticipant:
-            if SUPPORT_CHANNEL.isalpha():
-                link = u"https://t.me/{SUPPORT_CHANNEL}"
-            else:
-                chat_info = await bot.get_chat(CHANNEL_SUDO)
-                link = chat_info.invite_link
-            try:
-                await msg.reply(
-                    f"︙عـذراً، عـلـيـڪ الانـضـمـام الى هـذهِ الـقـنـاة أولاً\n︙اشـتـرڪ ثـم أرسـل : /start",
-                    disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton(f"قناة البوت", url=link)]
-                    ])
-                )
-                await msg.stop_propagation()
-            except ChatWriteForbidden:
-                pass
-    except ChatAdminRequired:
-        print(f"عليك رفع البوت آدمن في القناة أولاً ؟؟ : {SUPPORT_CHANNEL} !")
+@app.on_message(~subscribed)
+async def checker(_: Client, message: Message):
+    if message.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]: await message.delete()
+    user_id = message.from_user.id
+    user = message.from_user.first_name
+    markup = Markup([
+        [Button("- اشتراك -", url=f"https://t.me/{channel}")]
+    ])
+    await message.reply(
+        f"عذرًا عزيزي [{user}](tg://openmessage?user_id={user_id}) عليك الإشتراك بقناة البوت أولا.",
+        reply_markup = markup
+    )
+    
