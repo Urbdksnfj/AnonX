@@ -1,26 +1,3 @@
-"""
-MIT License
-
-Copyright (c) 2021 TheHamkerCat
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-"""
 import asyncio
 from time import time
 import re
@@ -176,7 +153,7 @@ async def purgeFunc(_, message: Message):
 # Kick members
 
 
-@app.on_message(filters.command(["طرد", "dkick"]) & filters.private
+@app.on_message(filters.command(["طرد", "dkick"], "") & filters.group
 )
 @adminsOnly("can_restrict_members")
 async def kickFunc(_, message: Message):
@@ -209,7 +186,7 @@ async def kickFunc(_, message: Message):
 # Ban members
 
 
-@app.on_message(command(["حظر"]) & filters.group)
+@app.on_message(filters.command(["حظر"], "") & filters.group)
 @adminsOnly("can_restrict_members")
 async def banFunc(_, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
@@ -270,7 +247,7 @@ async def banFunc(_, message: Message):
 # Unban members
 
 
-@app.on_message(filters.command(["الغاء حظر", "الغاء الحظر"]) & filters.private)
+@app.on_message(filters.command(["الغاء حظر", "الغاء الحظر"], "") & filters.private)
 @adminsOnly("can_restrict_members")
 async def unban_func(_, message: Message):
     # we don't need reasons for unban, also, we
@@ -310,7 +287,7 @@ async def deleteFunc(_, message: Message):
 # Promote Members
 
 
-@app.on_message(filters.command(["رفع مشرف", "fullpromote"])
+@app.on_message(filters.command(["رفع مشرف", "fullpromote"], "")
    
     & filters.private
 )
@@ -386,7 +363,7 @@ async def demote(_, message: Message):
 # Pin Messages
 
 
-@app.on_message(filters.command(["تثبيت", "unpin"]) & filters.private
+@app.on_message(filters.command(["تثبيت", "unpin"], "") & filters.private
 )
 @adminsOnly("can_pin_messages")
 async def pin(_, message: Message):
@@ -412,7 +389,7 @@ async def pin(_, message: Message):
 # Mute members
 
 
-@app.on_message(filters.command(["كتم", "tmute", "mute"]) & filters.private
+@app.on_message(filters.command(["كتم", "tmute", "mute"], "") & filters.private
 )
 @adminsOnly("can_restrict_members")
 async def mute(_, message: Message):
@@ -467,7 +444,7 @@ async def mute(_, message: Message):
 
     
 
-@app.on_message(command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"]) & filters.private)
+@app.on_message(command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"], "") & filters.private)
 @adminsOnly("can_restrict_members")
 async def unmute(_, message: Message):
     user_id = await extract_user(message)
@@ -506,7 +483,7 @@ async def ban_deleted_accounts(_, message: Message):
         await m.edit("There are no deleted accounts in this chat")
 
 
-@app.on_message(filters.command(["warn", "dwarn", "تحذير", "انذار"]) & filters.private
+@app.on_message(filters.command(["warn", "dwarn", "تحذير", "انذار"], "") & filters.private
 )
 @adminsOnly("can_restrict_members")
 async def warn_user(_, message: Message):
@@ -584,7 +561,7 @@ async def remove_warning(_, cq: CallbackQuery):
 # Rmwarns
 
 
-@app.on_message(filters.command(["حذف التحذير", "حذف الاندارات"]) & filters.private
+@app.on_message(filters.command(["حذف التحذير", "حذف الاندارات"], "") & filters.private
 )
 @adminsOnly("can_restrict_members")
 async def remove_warnings(_, message: Message):
@@ -608,7 +585,7 @@ async def remove_warnings(_, message: Message):
 # Warns
 
 
-@app.on_message(command(["التحذيرات", "الانذارات"]) & filters.private)
+@app.on_message(command(["التحذيرات", "الانذارات"], "") & filters.private)
 @capture_err
 async def check_warns(_, message: Message):
     user_id = await extract_user(message)
