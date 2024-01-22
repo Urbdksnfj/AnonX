@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
-from config import SUPPORT_CHANNEL, CHANNEL_NAME, CHANNEL_SUDO
+from config import SUPPORT_CHANNEL, CHANNEL_SUDO
 from AnonXMusic import app
 
 
@@ -23,7 +23,7 @@ async def must_join_channel(bot: Client, msg: Message):
                     f"︙عـذراً، عـلـيـڪ الانـضـمـام الى هـذهِ الـقـنـاة أولاً\n︙اشـتـرڪ ثـم أرسـل : /start",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton(f"{CHANNEL_NAME}", url=link)]
+                        [InlineKeyboardButton(f"قناة البوت", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
