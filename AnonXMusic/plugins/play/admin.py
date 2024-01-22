@@ -604,8 +604,7 @@ async def check_warns(_, message: Message):
 
 
 @app.on_message(
-    (
-            command("ابلاغ")
+    (filters.command("ابلاغ")
             | filters.command(["admins", "admin"], prefixes="@")
     )
    
