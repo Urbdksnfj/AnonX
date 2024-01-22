@@ -6,8 +6,6 @@ import asyncio
 
 
 
-
-
 welcome_enabled = True
 
 
@@ -15,7 +13,7 @@ welcome_enabled = True
 
 
 
-@app.on_chat_member_updated()
+@app.on_message_updated()
 async def welcome(client, chat_member_updated):
     if not welcome_enabled:
         return
