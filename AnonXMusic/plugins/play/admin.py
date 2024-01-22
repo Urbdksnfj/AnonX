@@ -104,7 +104,7 @@ async def admin_cache_func(_, cmu: ChatMemberUpdated):
 # Purge Messages
 
 
-@app.on_message(filters.command("purge") & filters.private)
+@app.on_message(filters.command("purge") & filters.group)
 @adminsOnly("can_delete_messages")
 async def purgeFunc(_, message: Message):
     repliedmsg = message.reply_to_message
@@ -247,7 +247,7 @@ async def banFunc(_, message: Message):
 # Unban members
 
 
-@app.on_message(filters.command(["الغاء حظر", "الغاء الحظر"], "") & filters.private)
+@app.on_message(filters.command(["الغاء حظر", "الغاء الحظر"], "") & filters.group)
 @adminsOnly("can_restrict_members")
 async def unban_func(_, message: Message):
     # we don't need reasons for unban, also, we
@@ -275,7 +275,7 @@ async def unban_func(_, message: Message):
 # Delete messages
 
 
-@app.on_message(filters.command("del") & filters.private)
+@app.on_message(filters.command("del") & filters.group)
 @adminsOnly("can_delete_messages")
 async def deleteFunc(_, message: Message):
     if not message.reply_to_message:
@@ -289,7 +289,7 @@ async def deleteFunc(_, message: Message):
 
 @app.on_message(filters.command(["رفع مشرف", "fullpromote"], "")
    
-    & filters.private
+    & filters.group
 )
 @adminsOnly("can_promote_members")
 async def promoteFunc(_, message: Message):
@@ -333,7 +333,7 @@ async def promoteFunc(_, message: Message):
 # Demote Member
 
 
-@app.on_message(command("تنزيل مشرف") & filters.private)
+@app.on_message(filters.command(["تنزيل مشرف"], "") & filters.group)
 @adminsOnly("can_promote_members")
 async def demote(_, message: Message):
     user_id = await extract_user(message)
@@ -363,7 +363,7 @@ async def demote(_, message: Message):
 # Pin Messages
 
 
-@app.on_message(filters.command(["تثبيت", "unpin"], "") & filters.private
+@app.on_message(filters.command(["تثبيت", "unpin"], "") & filters.group
 )
 @adminsOnly("can_pin_messages")
 async def pin(_, message: Message):
@@ -389,7 +389,7 @@ async def pin(_, message: Message):
 # Mute members
 
 
-@app.on_message(filters.command(["كتم", "tmute", "mute"], "") & filters.private
+@app.on_message(filters.command(["كتم", "tmute", "mute"], "") & filters.group
 )
 @adminsOnly("can_restrict_members")
 async def mute(_, message: Message):
@@ -444,7 +444,7 @@ async def mute(_, message: Message):
 
     
 
-@app.on_message(command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"], "") & filters.private)
+@app.on_message(filters.command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"], "") & filters.group)
 @adminsOnly("can_restrict_members")
 async def unmute(_, message: Message):
     user_id = await extract_user(message)
@@ -458,7 +458,7 @@ async def unmute(_, message: Message):
 
 
 @app.on_message(filters.command("حظر خفي")
-    & filters.private
+    & filters.group
    
 )
 @adminsOnly("can_restrict_members")
@@ -483,7 +483,7 @@ async def ban_deleted_accounts(_, message: Message):
         await m.edit("There are no deleted accounts in this chat")
 
 
-@app.on_message(filters.command(["warn", "dwarn", "تحذير", "انذار"], "") & filters.private
+@app.on_message(filters.command(["warn", "dwarn", "تحذير", "انذار"], "") & filters.group
 )
 @adminsOnly("can_restrict_members")
 async def warn_user(_, message: Message):
@@ -561,7 +561,7 @@ async def remove_warning(_, cq: CallbackQuery):
 # Rmwarns
 
 
-@app.on_message(filters.command(["حذف التحذير", "حذف الاندارات"], "") & filters.private
+@app.on_message(filters.command(["حذف التحذير", "حذف الاندارات"], "") & filters.group
 )
 @adminsOnly("can_restrict_members")
 async def remove_warnings(_, message: Message):
@@ -585,7 +585,7 @@ async def remove_warnings(_, message: Message):
 # Warns
 
 
-@app.on_message(command(["التحذيرات", "الانذارات"], "") & filters.private)
+@app.on_message(filters.command(["التحذيرات", "الانذارات"], "") & filters.group)
 @capture_err
 async def check_warns(_, message: Message):
     user_id = await extract_user(message)
@@ -609,7 +609,7 @@ async def check_warns(_, message: Message):
             | filters.command(["admins", "admin"], prefixes="@")
     )
    
-    & filters.private
+    & filters.group
 )
 @capture_err
 async def report_user(_, message):
