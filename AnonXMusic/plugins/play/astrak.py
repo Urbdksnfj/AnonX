@@ -20,10 +20,10 @@ async def checker(_: Client, message: Message):
     user_id = message.from_user.id
     user = message.from_user.first_name
     markup = Markup([
-        [Button("- اشتراك -", url=f"https://t.me/{channel}")]
+        [Button("- ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ -", url=f"https://t.me/{channel}")]
     ])
     await message.reply(
-        f"عذرًا عزيزي [{user}](tg://openmessage?user_id={user_id}) عليك الإشتراك بقناة البوت أولا.",
+        f"عذرًا عزيزي {user}عليك الإشتراك بقناة السور أولا.",
         reply_markup = markup
     )
     
