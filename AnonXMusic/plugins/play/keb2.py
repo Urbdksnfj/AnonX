@@ -80,11 +80,11 @@ async def cast(client: app, message):
 
 
 
-@app.on_message(filters.command("✭ قـنـاة الـسـورس"))
+@app.on_message(filters.command(["✭ قـنـاة الـسـورس"], ""))
 def reply_to_HEY(Client, message):
     message.reply_photo(
-        photo=f"https://t.me/Almortagel_12",
-        caption=f"""[ َِ.𝘀𝗼𝘂𝗿𝗰𝗲 ALMORTAGEL.〙𝘁𝗵𝗲 𝗳 𝗶𝗿𝘀𝘁 𝗰𝗵𝗲𝗿𝘂𝗯 𝗶𝗻 𝘁𝗵𝗲 𝗻𝗲𝘅𝘁 𝗽𝗲𝗼𝗽𝗹𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗲𝗱 𝗵 𝗶𝘀 𝗸𝗶𝗻𝗴𝘀 𝗮𝗻𝗱 𝗿𝗮𝗻𝗸 𖥳𝗰𝗿𝗲𝗮𝘁𝗼𝗿𝘀 𝗼𝗳 𝗽𝘂𝘀𝗵𝗰𝗵𝗲𝗻𝗸𝘆♬♪](https://t.me/AlmortagelTech)""",
+        photo=f"https://t.me/AlmortagelTech",
+        caption=f"""[ َِ.𝘀𝗼𝘂𝗿𝗰𝗲 ALMORTAGEL.〙𝘁𝗵𝗲 𝗳 𝗶𝗿𝘀𝘁 𝗰𝗵𝗲𝗿𝘂𝗯 𝗶𝗻 𝘁𝗵𝗲 𝗻𝗲𝘅𝘁 𝗽𝗲𝗼𝗽𝗹𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗲𝗱 𝗵 𝗶𝘀 𝗸𝗶𝗻𝗴𝘀 𝗮𝗻𝗱 𝗿𝗮𝗻𝗸 𖥳𝗰𝗿𝗲𝗮𝘁𝗼𝗿𝘀 𝗼𝗳 𝗽𝘂𝘀𝗵𝗰𝗵𝗲𝗻𝗸𝘆♬♪""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
@@ -95,7 +95,7 @@ def reply_to_HEY(Client, message):
   )
     
 
-@app.on_message(filters.command("✭ مطور السورس"))
+@app.on_message(filters.command(["✭ مطور السورس"], ""))
 def reply_to_HEY(Client, message):
     message.reply_photo(
         photo=f"https://t.me/Almortagel_12",
@@ -113,7 +113,7 @@ def reply_to_HEY(Client, message):
     
 
 
-@app.on_message(filters.command("✭ للتواصل معنآ"))
+@app.on_message(filters.command(["✭ للتواصل معنآ"], ""))
 def reply_to_HEY(Client, message):
     message.reply_photo(
         photo=f"https://t.me/AlmortagelTech",
@@ -128,7 +128,7 @@ def reply_to_HEY(Client, message):
      )
   )
     
-@app.on_message(filters.command("✭ مطور السورس"))
+@app.on_message(filters.command(["✭ مطور السورس"], ""))
 def reply_to_HEY(Client, message):
     message.reply_photo(
         photo=f"https://t.me/Almortagel_12",
@@ -178,7 +178,7 @@ async def sticker_id(_, message: Message):
         return await message.reply("**رد علي الملصق لجلب الكود 🤗⚡**")
     await message.reply_text(f"<b>تفضل عزيزي المطور هذا هو id الاستيكر الحالي </b> \n`{reply.sticker.file_id}`")
              
-@app.on_message(filters.command("✭ لغة البوت") & filters.private & SUDOERS)
+@app.on_message(filters.command(["✭ لغة البوت"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -196,7 +196,7 @@ async def almortagel(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command("✭ الـيـوتـيـوب") & filters.private & SUDOERS)
+@app.on_message(filters.command(["✭ الـيـوتـيـوب"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -235,7 +235,7 @@ async def yas(client, message):
 
 
 
-@app.on_message(filters.command("✭ المحـظـوريـن") & SUDOERS)
+@app.on_message(filters.command(["✭ المحـظـوريـن"], "") & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -254,7 +254,7 @@ async def almortagel(client: Client, message: Message):
                     
 
 
-@app.on_message(filters.command("✭ مـطـوريـنـك") & SUDOERS)
+@app.on_message(filters.command(["✭ مـطـوريـنـك"], "") & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -272,7 +272,7 @@ async def almortagel(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command("✭ ايـديـهـك") & filters.private & SUDOERS)
+@app.on_message(filters.command(["✭ ايـديـهـك"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -292,7 +292,7 @@ async def almortagel(client: Client, message: Message):
 
 
 
-@app.on_message(filters.command(" حـظـر الـجـروبـات") & filters.private & SUDOERS)
+@app.on_message(filters.command(["✭ حـظـر الـجـروبـات"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -310,7 +310,7 @@ async def almortagel(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command("✭ جـروبـاتـك النـشـطـه") & filters.private & SUDOERS)
+@app.on_message(filters.command(["✭ جـروبـاتـك النـشـطـه"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -328,7 +328,7 @@ async def almortagel(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command("✭ حـظـر الـجـروبـات") & filters.private & SUDOERS)
+@app.on_message(filters.command(["✭ حـظـر الـجـروبـات"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -346,7 +346,7 @@ async def almortagel(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command("༺┉⊶﴿♡  ALMORTAGEL ĶËŸBÖÄŖĐ ♡﴾⊷┉༻") & filters.private & SUDOERS)
+@app.on_message(filters.command(["༺┉⊶﴿♡  ALMORTAGEL ĶËŸBÖÄŖĐ ♡﴾⊷┉༻"], "") & filters.private & SUDOERS)
 async def almortagel(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
@@ -366,7 +366,7 @@ async def almortagel(client: Client, message: Message):
 
 
 
-@app.on_callback_query(filters.command("✭ قـفـل الـكـيـبـورد") & filters.private & SUDOERS)
+@app.on_callback_query(filters.command(["✭ قـفـل الـكـيـبـورد") & filters.private & SUDOERS)
 async def almortagel(_, query: CallbackQuery):
    await callback_query.edit_message_caption(caption =f"""**♬ تــم حــذف الــڪــيــبــورد .**""",
         reply_markup=InlineKeyboardMarkup(
