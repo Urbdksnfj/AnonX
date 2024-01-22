@@ -29,7 +29,6 @@ from pyrogram.types import Message
 from AnonXMusic.misc import SUDOERS
 
 
-
 async def authorised(func, subFunc2, client, message, *args, **kwargs):
     chatID = message.chat.id
     try:
@@ -80,9 +79,8 @@ def adminsOnly(permission):
                     )
                 return await unauthorised(message, permission, subFunc2)
             # For admins and sudo users
-            userID = message.from_user.id
-            permissions = await member_permissions(chat_id, user_id)
-            if userID not in SUDOERS and permission not in permissions:
+            member = await app.get_chat_member(chat_id, user_id)
+            if message.from_user.id not in SUDOERS and permission not in permissions:
                 return await unauthorised(message, permission, subFunc2)
             return await authorised(
                 func, subFunc2, client, message, *args, **kwargs
