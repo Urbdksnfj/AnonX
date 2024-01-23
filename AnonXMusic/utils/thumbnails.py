@@ -20,7 +20,16 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
 
 
-async def gen_thumb(videoid):
+def clear(text):
+    list = text.split(" ")
+    title = ""
+    for i in list:
+        if len(title) + len(i) < 60:
+            title += " " + i
+    return title.strip()
+
+
+async def get_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
         return f"cache/{videoid}.png"
 
@@ -51,48 +60,27 @@ async def gen_thumb(videoid):
         async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
-                    f = await aiofiles.open(
-                        f"cache/thumb{videoid}.png", mode="wb"
-                    )
+                    f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
                     await f.write(await resp.read())
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
-        
-        image2 = Image.open("assets/ROYAL.png")
-        
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(30))
+        background = image2.filter(filter=ImageFilter.BoxBlur(10))
         enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.6)
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
-        x1 = Xcenter - 250
-        y1 = Ycenter - 250
-        x2 = Xcenter + 250
-        y2 = Ycenter + 250
-        logo = youtube.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo = ImageOps.expand(logo, border=15, fill="white")
-        background.paste(logo, (50, 100))
+        background = enhancer.enhance(0.5)
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("assets/font2.ttf", 40)
-        font2 = ImageFont.truetype("assets/font2.ttf", 70)
-        arial = ImageFont.truetype("assets/font2.ttf", 30)
-        name_font = ImageFont.truetype("assets/font.ttf", 30)
-        para = textwrap.wrap(title, width=32)
-        j = 0
-        draw.text(
-            (5, 5), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
-        )
+        arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
+        font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
+        draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
         draw.text(
             (600, 150),
-            "ROYAL",
+            "Almortagel playing",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
-            font=font2,
+            font=arial,
         )
         for line in para:
             if j == 1:
@@ -103,7 +91,7 @@ async def gen_thumb(videoid):
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
-                    font=font,
+                    font=arial,
                 )
             if j == 0:
                 j += 1
@@ -113,7 +101,7 @@ async def gen_thumb(videoid):
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
-                    font=font,
+                    font=arial,
                 )
 
         draw.text(
@@ -148,4 +136,3 @@ async def gen_thumb(videoid):
         return f"cache/{videoid}.png"
     except Exception:
         return YOUTUBE_IMG_URL
-
