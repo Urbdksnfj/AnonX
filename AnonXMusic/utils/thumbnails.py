@@ -64,7 +64,7 @@ async def get_thumb(videoid):
                     await f.write(await resp.read())
                     await f.close()
 
-        youtube = Image.open(f"cache/thumb{videoid}.png
+        youtube = Image.open(f"cache/thumb{videoid}.png")
        bg = Image.open(f"AnonXMusic/assets/anonx.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
