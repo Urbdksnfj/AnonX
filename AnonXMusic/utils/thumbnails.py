@@ -65,26 +65,18 @@ async def get_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
+                bg = Image.open(f"AnonX/assets/anonx.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(30))
+        background = image2.filter(filter=ImageFilter.BoxBlur(10))
         enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.6)
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
-        x1 = Xcenter - 250
-        y1 = Ycenter - 250
-        x2 = Xcenter + 250
-        y2 = Ycenter + 250
-        logo = youtube.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo = ImageOps.expand(logo, border=15, fill="white")
-        background.paste(logo, (50, 100))
+        background = enhancer.enhance(0.5)
+        image3 = changeImageSize(1280, 720, bg)
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
-        draw.text(
+            draw.text(
             (600, 150),
             "ALMORTAGEL PLAYING",
             fill="white",
@@ -139,6 +131,12 @@ async def get_thumb(videoid):
             font=arial,
         )
         draw.text(
+            (55, 560),
+            f"{channel} | {views[:23]}",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
             (57, 600),
             clear(title),
             (255, 255, 255),
@@ -174,5 +172,6 @@ async def get_thumb(videoid):
             pass
         background.save(f"cache/{videoid}.png")
         return f"cache/{videoid}.png"
-    except Exception:
+    except Exception as e:
+        print(e)
         return YOUTUBE_IMG_URL
