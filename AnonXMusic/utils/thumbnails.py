@@ -71,8 +71,8 @@ async def get_thumb(videoid):
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.5)
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 40)
-        font2 = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 70)
+        font = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
+        font2 = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         name_font = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         para = textwrap.wrap(title, width=32)
@@ -86,7 +86,7 @@ async def get_thumb(videoid):
             fill="black",
             stroke_width=2,
             stroke_fill="black",
-            font=font2,
+            font=font,
         )
         for line in para:
             if j == 1:
