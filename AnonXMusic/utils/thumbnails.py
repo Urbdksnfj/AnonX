@@ -20,16 +20,7 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
 
 
-def clear(text):
-    list = text.split(" ")
-    title = ""
-    for i in list:
-        if len(title) + len(i) < 60:
-            title += " " + i
-    return title.strip()
-
-
-async def get_thumb(videoid):
+async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
         return f"cache/{videoid}.png"
 
@@ -60,23 +51,18 @@ async def get_thumb(videoid):
         async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
-                    f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
+                    f = await aiofiles.open(
+                        f"cache/thumb{videoid}.png", mode="wb"
+                    )
                     await f.write(await resp.read())
                     await f.close()
 
-        
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"AnonX/assets/anonx.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-
-        image3 = changeImageSize(1280, 720, bg)
-        image5 = image3.convert("RGBA")
-        Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
-
         Xcenter = youtube.width / 2
         Ycenter = youtube.height / 2
         x1 = Xcenter - 250
@@ -85,83 +71,63 @@ async def get_thumb(videoid):
         y2 = Ycenter + 250
         logo = youtube.crop((x1, y1, x2, y2))
         logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo.save(f"cache/chop{videoid}.png")
-        if not os.path.isfile(f"cache/cropped{videoid}.png"):
-            im = Image.open(f"cache/chop{videoid}.png").convert("RGBA")
-            add_corners(im)
-            im.save(f"cache/cropped{videoid}.png")
-
-        crop_img = Image.open(f"cache/cropped{videoid}.png")
-        logo = crop_img.convert("RGBA")
-        logo.thumbnail((365, 365), Image.ANTIALIAS)
-        width = int((1280 - 365) / 2)
-        background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (width + 2, 138), mask=logo)
-        background.paste(x, (710, 427), mask=x)
-        background.paste(image3, (0, 0), mask=image3)
-
-        draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AnonX/assets/font2.ttf", 45)
-        ImageFont.truetype("AnonX/assets/font2.ttf", 70)
-        arial = ImageFont.truetype("AnonX/assets/font2.ttf", 30)
-        ImageFont.truetype("AnonX/assets/font.ttf", 30)
+        logo = ImageOps.expand(logo, border=15, fill="white")
+        background.paste(logo, (5, 720))
+        draw = ImageDraw.Draw("assets/Youtube.jpeg")
+        font = ImageFont.truetype("assets/font2.ttf", 40)
+        font2 = ImageFont.truetype("assets/font2.ttf", 70)
+        arial = ImageFont.truetype("assets/font2.ttf", 30)
+        name_font = ImageFont.truetype("assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
-        try:
-            draw.text(
-                (450, 25),
-                f"Almortagel PLAYING",
-                fill="white",
-                stroke_width=3,
-                stroke_fill="grey",
-                font=font,
-            )
-            if para[0]:
-                text_w, text_h = draw.textsize(f"{para[0]}", font=font)
+        j = 0
+        draw.text(
+            (5, 5), "𝗠𝗶𝗿𝗮 𝗠𝘂𝘀𝗶𝗰 ♪", fill="white", font=name_font
+        )
+        draw.text(
+            (366, 150),
+            "𝙋𝙡𝙖𝙮𝙞𝙣𝙜 𝙉𝙤𝙬",
+            fill="black",
+            stroke_width=2,
+            stroke_fill="black",
+            font=font2,
+        )
+        for line in para:
+            if j == 1:
+                j += 1
                 draw.text(
-                    ((1280 - text_w) / 2, 530),
-                    f"{para[0]}",
+                    (600, 340),
+                    f"{line}",
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
                     font=font,
                 )
-            if para[1]:
-                text_w, text_h = draw.textsize(f"{para[1]}", font=font)
+            if j == 0:
+                j += 1
                 draw.text(
-                    ((1280 - text_w) / 2, 580),
-                    f"{para[1]}",
+                    (600, 280),
+                    f"{line}",
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
                     font=font,
-        )
+                )
+
         draw.text(
             (600, 450),
-            f"Views : {views[:23]}",
+            f"𝙑𝙞𝙚𝙬𝙨 : {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
             (600, 500),
-            f"Duration : {duration[:23]} Mins",
+            f"𝘿𝙪𝙧𝙖𝙩𝙞𝙤𝙣 : {duration[:23]} Mins",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
             (600, 550),
-            f"Channel : {channel}",
-            (255, 255, 255),
-            font=arial,
-        )
-        draw.text(
-            (600, 600),
-            f"DEV : ALMORTAGEL",
-            (255, 255, 255),
-            font=arial,
-        )
-        draw.text(
-            (55, 560),
-            f"{channel} | {views[:23]}",
+            f"𝘾𝙝𝙖𝙣𝙣𝙚𝙡 : {channel}",
             (255, 255, 255),
             font=arial,
         )
@@ -201,6 +167,5 @@ async def get_thumb(videoid):
             pass
         background.save(f"cache/{videoid}.png")
         return f"cache/{videoid}.png"
-    except Exception as e:
-        print(e)
+    except Exception:
         return YOUTUBE_IMG_URL
