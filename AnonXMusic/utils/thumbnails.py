@@ -20,7 +20,17 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
 
 
-async def gen_thumb(videoid):
+
+def clear(text):
+    list = text.split(" ")
+    title = ""
+    for i in list:
+        if len(title) + len(i) < 60:
+            title += " " + i
+    return title.strip()
+
+
+async def get_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
         return f"cache/{videoid}.png"
 
@@ -81,7 +91,7 @@ async def gen_thumb(videoid):
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (5, 5), "𝗠𝗶𝗿𝗮 𝗠𝘂𝘀𝗶𝗰 ♪", fill="white", font=name_font
+            (5, 5), "𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹 𝗠𝘂𝘀𝗶𝗰 ♪", fill="white", font=name_font
         )
         draw.text(
             (366, 150),
