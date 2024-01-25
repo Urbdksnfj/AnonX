@@ -366,7 +366,7 @@ async def almortagel(client: Client, message: Message):
 
 
 
-@app.on_callback_query(filters.command(["✭ قـفـل الـكـيـبـورد") & filters.private & SUDOERS)
+@app.on_callback_query(filters.command(["✭ قـفـل الـكـيـبـورد"], "") & filters.private & SUDOERS)
 async def almortagel(_, query: CallbackQuery):
    await callback_query.edit_message_caption(caption =f"""**♬ تــم حــذف الــڪــيــبــورد .**""",
         reply_markup=InlineKeyboardMarkup(
