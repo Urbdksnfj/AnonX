@@ -64,7 +64,6 @@ async def get_thumb(videoid):
                     await f.write(await resp.read())
                     await f.close()
 
-        
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
@@ -76,16 +75,8 @@ async def get_thumb(videoid):
         font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
         draw.text(
-            (5, 5), 
-            "𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹 𝗠𝘂𝘀𝗶𝗰 ♪", 
-            fill="black",
-            stroke_width=2,
-            stroke_fill="black",
-            font=font,
-        )
-        draw.text(
             (366, 150),
-            "𝙋𝙡𝙖𝙮𝙞𝙣𝙜 𝙉𝙤𝙬",
+            "𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹 𝙋𝙡𝙖𝙮𝙞𝙣𝙜",
             fill="black",
             stroke_width=2,
             stroke_fill="black",
@@ -128,6 +119,12 @@ async def get_thumb(videoid):
         draw.text(
             (600, 550),
             f"𝘾𝙝𝙖𝙣𝙣𝙚𝙡 : {channel}",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (55, 560),
+            f"{channel} | {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
