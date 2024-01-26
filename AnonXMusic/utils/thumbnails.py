@@ -80,29 +80,8 @@ async def get_thumb(videoid):
             fill="white",
             stroke_width=2,
             stroke_fill="white",
-            font=font,
+            font=arial,
         )
-        for line in para:
-            if j == 1:
-                j += 1
-                draw.text(
-                    (600, 340),
-                    f"{line}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-            if j == 0:
-                j += 1
-                draw.text(
-                    (600, 280),
-                    f"{line}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
         draw.text(
             (600, 450),
             f"Views : {views[:23]}",
