@@ -11,7 +11,7 @@ from pyrogram.types import (InlineKeyboardButton,
 from pyrogram import filters, Client
 
 
-@app.on_message(filters.command("رفع ثانوي", ""))
+@app.on_message(filters.command(["رفع ثانوي"], ""))
 def promote_basic_dev(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -51,7 +51,7 @@ def promote_basic_dev(client, message):
 
 
 
-@app.on_message(filters.command("الثانويين", ""))
+@app.on_message(filters.command(["الثانويين"], ""))
 def list_basic_devs(client, message):
     tom_basic_devs = load_tom_basic_devs()
 
@@ -77,7 +77,7 @@ def list_basic_devs(client, message):
             message.reply_text("تعذر العثور على معلومات المطورين الثانويين")
 
 
-@app.on_message(filters.command("تنزيل ثانوي", ""))
+@app.on_message(filters.command(["تنزيل ثانوي"], ""))
 def demote_basic_dev(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -115,7 +115,7 @@ def demote_basic_dev(client, message):
 √""")
 
 
-@app.on_message(filters.command("مسح الثانويين", ""))
+@app.on_message(filters.command(["مسح الثانويين"], ""))
 def clear_basic_devs(client, message):
     tom_basic_devs = load_tom_basic_devs()
     if (not TOM(client, message, message) and not OWNER_ID(client, message, message)):

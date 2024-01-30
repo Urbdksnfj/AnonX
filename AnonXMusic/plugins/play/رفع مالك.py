@@ -24,7 +24,7 @@ from pyrogram import filters, Client
 
 
 
-@app.on_message(filters.command("رفع مالك", ""))
+@app.on_message(filters.command(["رفع مالك"], ""))
 def promote_owner(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -66,7 +66,7 @@ def promote_owner(client, message):
 √""")
 
 
-@app.on_message(filters.command("تنزيل مالك", ""))
+@app.on_message(filters.command(["تنزيل مالك"], ""))
 def demote_owner(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -109,7 +109,7 @@ def demote_owner(client, message):
 √""")
 
 
-@app.on_message(filters.command("مسح المالكين", ""))
+@app.on_message(filters.command(["مسح المالكين"], ""))
 def clear_owner(client, message):
     chat_id = str(message.chat.id)
     tom_owners = load_tom_owners()
@@ -129,7 +129,7 @@ def clear_owner(client, message):
 
 
 
-@app.on_message(filters.command("المالكين", ""))
+@app.on_message(filters.command(["المالكين"], ""))
 def get_owner(client, message):
     chat_id = str(message.chat.id)
     tom_owners = load_tom_owners()

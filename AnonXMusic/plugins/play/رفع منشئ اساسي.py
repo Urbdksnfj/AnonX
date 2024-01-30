@@ -24,7 +24,7 @@ from pyrogram import filters, Client
 
 
 
-@app.on_message(filters.command("رفع منشئ اساسي", ""))
+@app.on_message(filters.command(["رفع منشئ اساسي"], ""))
 def promote_basic_creator(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -63,7 +63,7 @@ def promote_basic_creator(client, message):
 
 
 
-@app.on_message(filters.command("تنزيل منشئ اساسي", ""))
+@app.on_message(filters.command(["تنزيل منشئ اساسي"], ""))
 def demote_basic_creator(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -102,7 +102,7 @@ def demote_basic_creator(client, message):
 √""")
 
 
-@app.on_message(filters.command("المنشئين الاساسيين", ""))
+@app.on_message(filters.command(["المنشئين الاساسيين"], ""))
 def get_basic_creators(client, message):
     tom_basic_creators = load_tom_basic_creators()
     if (not TOM(client, message, message) and not basic_dev(client, message, message) and not OWNER_ID(client, message, message) and not dev(client, message, message) and not is_basic_creator(client, message, message)):

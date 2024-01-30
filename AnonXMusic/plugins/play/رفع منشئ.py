@@ -10,7 +10,7 @@ from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 from pyrogram import filters, Client
 
-@app.on_message(filters.command("رفع منشئ", ""))
+@app.on_message(filters.command(["رفع منشئ"], ""))
 def promote_creator(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -54,7 +54,7 @@ def promote_creator(client, message):
 
 
 
-@app.on_message(filters.command("تنزيل منشئ", ""))
+@app.on_message(filters.command(["تنزيل منشئ"], ""))
 def demote_creator(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -97,7 +97,7 @@ def demote_creator(client, message):
 
 
 
-@app.on_message(filters.command("مسح المنشئين", ""))
+@app.on_message(filters.command(["مسح المنشئين"], ""))
 def clear_creators(client, message):
     chat_id = str(message.chat.id)
     tom_creators = load_tom_creators()
@@ -119,7 +119,7 @@ def clear_creators(client, message):
 
 
 
-@app.on_message(filters.command("المنشئين", ""))
+@app.on_message(filters.command(["المنشئين"], ""))
 def get_creators(client, message):
     chat_id = str(message.chat.id)
     tom_creators = load_tom_creators()

@@ -21,7 +21,7 @@ from pyrogram import filters, Client
 
 
 
-@app.on_message(filters.command("رفع مطور", ""))
+@app.on_message(filters.command(["رفع مطور"], ""))
 def promote_devs(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -61,7 +61,7 @@ def promote_devs(client, message):
 
 
 
-@app.on_message(filters.command("المطورين", ""))
+@app.on_message(filters.command(["المطورين"], ""))
 def get_devs(client, message):
     chat_id = str(message.chat.id)
     tom_devs = load_tom_devs()
@@ -92,7 +92,7 @@ def get_devs(client, message):
 
 
 
-@app.on_message(filters.command("تنزيل مطور", ""))
+@app.on_message(filters.command(["تنزيل مطور"], ""))
 def demote_devs(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id

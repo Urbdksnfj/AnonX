@@ -12,8 +12,8 @@ from pyrogram import filters, Client
 
 
 
-@app.on_message(filters.command("تفعيل", ""))
-def update_owners(client, message):
+@app.on_message(filters.command(["تفعيل"], ""))
+def tom_owners(client, message):
     chat_id = str(message.chat.id)
     Toom = message.from_user
     tom_owners = load_tom_owners()

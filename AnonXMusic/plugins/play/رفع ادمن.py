@@ -25,7 +25,7 @@ from pyrogram import filters, Client
       ###                      #####                          ###                      ###
 
 
-@app.on_message(filters.command("رفع ادمن", ""))
+@app.on_message(filters.command(["رفع ادمن"], ""))
 def promote_admin(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -70,7 +70,7 @@ def promote_admin(client, message):
 
 
 
-@app.on_message(filters.command("تنزيل ادمن", ""))
+@app.on_message(filters.command(["تنزيل ادمن"], ""))
 def demote_admin(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -114,7 +114,7 @@ def demote_admin(client, message):
 
 
 
-@app.on_message(filters.command("مسح الادمنيه", ""))
+@app.on_message(filters.command(["مسح الادمنيه"], ""))
 def clear_admins(client, message):
     chat_id = str(message.chat.id)
     tom_admin = load_tom_admin()

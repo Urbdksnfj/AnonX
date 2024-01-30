@@ -12,7 +12,7 @@ from pyrogram import filters, Client
 
 
 
-@app.on_message(filters.command("رفع مميز", ""))
+@app.on_message(filters.command(["رفع مميز"], ""))
 def promote_distinct(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -55,7 +55,7 @@ def promote_distinct(client, message):
 √""")
 
 
-@app.on_message(filters.command("تنزيل مميز", ""))
+@app.on_message(filters.command(["تنزيل مميز"], ""))
 def demote_distinct(client, message):
     if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
@@ -97,7 +97,7 @@ def demote_distinct(client, message):
 √""")
 
 
-@app.on_message(filters.command("مسح المميزين", ""))
+@app.on_message(filters.command(["مسح المميزين"], ""))
 def clear_distinct(client, message):
     chat_id = str(message.chat.id)
     tom_distinct = load_tom_distinct()
