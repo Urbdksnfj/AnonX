@@ -49,7 +49,8 @@ def AdminRightsCheck(mystic):
                     ]
                 ]
             )
-            return await message.command[0][0] == "c":
+            _ = get_string("en")
+        if message.command[0][0] == "c":
             chat_id = await get_cmode(message.chat.id)
             if chat_id is None:
                 return await message.reply_text(_["setting_7"])
