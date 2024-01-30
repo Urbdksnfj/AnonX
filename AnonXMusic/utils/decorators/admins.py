@@ -145,7 +145,7 @@ def AdminActual(mystic):
                     ]
                 ]
             )
-            return await message.reply_text(_["general_3"], reply_markup=upl)
+             _ = get_string("en")
         if message.from_user.id not in SUDOERS:
             try:
                 member = (
