@@ -11,10 +11,8 @@ lokrf = []
 @app.on_message(
      filters.command(["قفل الرفع","تعطيل الرفع"], "")
      & filters.group
-
-   
 )
-async def iddlock(client:Client, message:Message):
+async def close(client:Client, message:Message):
     dev = (OWNER_ID)
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if message.from_user.id in dev:
@@ -38,9 +36,8 @@ async def iddlock(client:Client, message:Message):
     filters.command(["فتح الرفع","تفعيل الرفع"], "")
     & filters.group
 )
-async def idljjopen(client:Client, message:Message):
+async def open(client:Client, message:Message):
     dev = (OWNER_ID)
-
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if message.from_user.id in dev:
         rotba = "مطـور اساسي"
