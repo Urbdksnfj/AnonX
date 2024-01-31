@@ -5,7 +5,7 @@ from pyrogram import filters, Client
 from AnonXMusic import app
 
 @app.on_message(filters.command(['نداء','ن'], ""))
-async def call_random_member(client, message):
+async def call_random_member(client: Client, message: Message):
     chat_id = message.chat.id
     members = [
         member for member in client.iter_chat_members(chat_id)
@@ -25,7 +25,7 @@ async def call_random_member(client, message):
 
 
 @app.on_message(filters.command(['زوجني','ز'], ""))
-async def call_random_member(client, message):
+async def call_random_member(client: Client, message: Message):
     chat_id = message.chat.id
     members = [
         member for member in client.iter_chat_members(chat_id)
