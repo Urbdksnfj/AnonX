@@ -22,17 +22,15 @@ from dotenv import load_dotenv
 async def bkouqw(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/14c7948ad180050fe16e4.jpg",
-        caption=f"""**⩹━𓍹𓋹𓍻⊷⌯ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ⌯⊶𓍹𓋹𓍻━⩺**\nمرحبا بك عزيزي {message.from_user.mention}\n
+        caption=f"""⩹━𓍹𓋹𓍻⊷⌯ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ⌯⊶𓍹𓋹𓍻━⩺\nمرحبا بك عزيزي {message.from_user.mention}\n
 𓍹𓋹𓍻᚜ اسم سورس:-المرتجل ميوزك
 𓍹𓋹𓍻᚜ نوعه:-ميوزك
 𓍹𓋹𓍻᚜ للغه برمجه:- بايثون
 𓍹𓋹𓍻᚜ اللغه:-اللغه العربيه ويدعم الانجليزيه 
-𓍹𓋹𓍻᚜ مجال تشغيل :- تشغيل بوتات الميوزك
 𓍹𓋹𓍻᚜ الاصدار 2.1 pyrogram 
 𓍹𓋹𓍻᚜ تاريخ تاسيس:-21-2-2020
-\n
-𓍹𓋹𓍻᚜ مبرمج السورس :- [ᴍʀ ᴇʟᴍᴏʀᴛᴀɢᴇʟ]{from_user_id=OWNER}
-\n**⩹━𓍹𓋹𓍻⊷⌯ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ⌯⊶𓍹𓋹𓍻━⩺**""",
+𓍹𓋹𓍻᚜ مبرمج السورس :- [ᴍʀ ᴇʟᴍᴏʀᴛᴀɢᴇʟ](from_user_id=OWNER)
+⩹━𓍹𓋹𓍻⊷⌯ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ⌯⊶𓍹𓋹𓍻━⩺""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
