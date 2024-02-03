@@ -1,5 +1,3 @@
-
-
 import asyncio
 import os
 import time
@@ -47,5 +45,8 @@ async def bkouqw(client: Client, message: Message):
           ]
         ),
     )
+
+
+
 
 
