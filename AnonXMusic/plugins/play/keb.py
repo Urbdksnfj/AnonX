@@ -8,9 +8,6 @@ from typing import Union
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove, Message, ChatJoinRequest
 
-#كسمك تحياتي😂
-REPLY_MESSAGE = "**🧑🏻‍✈️︙اهلا بك بك عزيزي العضو ♥️**\n**⤵️︙ اليـكـ كيب الاعضاء الخاص بسورس المرتجل**"
-
 REPLY_MESSAGE_BUTTONS = [
     [
              ("المبرمج"),                   
@@ -66,10 +63,8 @@ REPLY_MESSAGE_BUTTONS = [
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
-    text = REPLY_MESSAGE
     reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
     await message.reply(
-        text=text,
         reply_markup=reply_markup
     )
 
