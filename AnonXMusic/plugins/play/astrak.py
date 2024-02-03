@@ -7,7 +7,6 @@ from AnonXMusic import app
 
 channel = "AlmortagelTech"
 async def subscription(_, __: Client, message: Message):
-    user_id = message.from_user.id
     try: await app.get_chat_member(channel, user_id)
     except UserNotParticipant: return False
     return True
