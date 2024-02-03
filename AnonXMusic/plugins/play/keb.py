@@ -1,4 +1,4 @@
-import asyncio
+٧import asyncio
 from pyrogram import Client, filters
 from random import choice
 from pyrogram import filters
@@ -61,7 +61,6 @@ REPLY_MESSAGE_BUTTONS = [
 ]
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
-@LanguageStart
 async def start_pm(client, message: Message, _):
     reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
     await message.reply(
