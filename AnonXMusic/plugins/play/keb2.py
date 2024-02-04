@@ -1,6 +1,6 @@
 import asyncio
 import config
-import timeout
+from config import timeout
 from pyrogram import Client, filters
 from pyrogram import filters
 from AnonXMusic import app
