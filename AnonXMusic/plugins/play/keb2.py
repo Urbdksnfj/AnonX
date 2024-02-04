@@ -386,12 +386,7 @@ async def almortagel(_, query: CallbackQuery):
 
 
 @app.on_message(filters.command(["قسم التفعيل والتعطيل"], ""))
-async def helpercn(client, message):
-   bot_username = client.me.username
-   dev = await get_dev(bot_username)
-   userbot = await get_userbot(bot_username)
-   me = userbot.me
-   if message.chat.id == dev or message.chat.username in OWNER:
+async def helpercn(client: app, message):
     kep = ReplyKeyboardMarkup([
 ["تعطيل التواصل","تفعيل التواصل"],
 ["تعطيل سجل التشغيل","تفعيل سجل التشغيل"],
@@ -401,9 +396,6 @@ async def helpercn(client, message):
 
 @app.on_message(filters.command(["قسم التعيين"], ""))
 async def cast(client: Client, message):
-   bot_username = client.me.username
-   dev = await get_dev(bot_username)
-   if message.chat.id == dev or message.chat.username in OWNER:
     kep = ReplyKeyboardMarkup([
 ["تعين اسم البوت"],
 ["تعين قناة البوت","تعين مجموعة البوت"],
@@ -418,7 +410,7 @@ async def A_q_lp(client, message):
   dev = await get_dev(bot_username)
   chat = message.chat.id
   uesr = message.chat.username
-  if chat == dev or uesr in OWNER:
+  if chat == dev or uesr in OWNER_ID:
     kep = ReplyKeyboardMarkup([
 ["الاحصائيات","المكالمات النشطه"],
 ["المجموعات","المستخدمين"],
@@ -543,15 +535,7 @@ async def set_join_must(client: Client, message):
      await message.reply_text("**تم تفعيل الاشتراك بنجاح 💎 .**")
      
 @app.on_message(filters.command(["قسم المساعد"], ""))
-async def helpercn(client: Client, message):
-   bot_username = client.me.username
-   dev = await get_dev(bot_username)
-   userbot = await get_userbot(bot_username)
-   me = userbot.me
-   i = f"@{me.username} : {me.id}" if me.username else me.id
-   b = await client.get_chat(me.id)
-   b = b.bio if b.bio else "لا يوجد بايو"
-   if message.chat.id == dev or message.chat.username in OWNER:
+async def cast(client: app, message):
     kep = ReplyKeyboardMarkup([
 ["فحص المساعد"],
 ["تغير الاسم الاول", "تغير الاسم الثاني"], 
@@ -567,7 +551,7 @@ async def helpercn(client: Client, message):
 async def userrrrr(client: Client, message):
    bot_username = client.me.username
    dev = await get_dev(bot_username)
-   if message.chat.id == dev or message.chat.username in OWNER:
+   if message.chat.id == dev or message.chat.username in OWNER_ID:
     client = await get_userbot(bot_username)
     mm = await message.reply_text("Collecting stats")
     start = datetime.now()
@@ -590,7 +574,7 @@ async def userrrrr(client: Client, message):
         elif enums.ChatType.SUPERGROUP == type:
             sg += 1
             user_s = await dialog.chat.get_member(int(Meh.id))
-            if user_s.status == enums.ChatMemberStatus.ADMINISTRATOR or user_s.status == enums.ChatMemberStatus.OWNER:
+            if user_s.status == enums.ChatMemberStatus.ADMINISTRATOR or user_s.status == enums.ChatMemberStatus.OWNER_ID:
                 a_chat += 1
         elif enums.ChatType.CHANNEL == type:
             c += 1
@@ -616,7 +600,7 @@ async def userrrrr(client: Client, message):
 async def changefisrt(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
-  if message.chat.id == dev or message.chat.username in OWNER:
+  if message.chat.id == dev or message.chat.username in OWNER_ID:
    try:
     name = await client.ask(message.chat.id, "**♪ ارسل الان الاسم الجديد  💎 .**")
     name = name.text
@@ -631,7 +615,7 @@ async def changefisrt(client: Client, message):
 async def changelast(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
-  if message.chat.id == dev or message.chat.username in OWNER:
+  if message.chat.id == dev or message.chat.username in OWNER_ID:
    try:
     name = await client.ask(message.chat.id, "**♪ ارسل الان الاسم الجديد  💎 .**")
     name = name.text
@@ -646,7 +630,7 @@ async def changelast(client: Client, message):
 async def changebio(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
-  if message.chat.id == dev or message.chat.username in OWNER:
+  if message.chat.id == dev or message.chat.username in OWNER_ID:
    try:
     name = await client.ask(message.chat.id, "**♪ ارسل الان البايو الجديد  💎 .**")
     name = name.text
@@ -661,7 +645,7 @@ async def changebio(client: Client, message):
 async def changeusername(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
-  if message.chat.id == dev or message.chat.username in OWNER:
+  if message.chat.id == dev or message.chat.username in OWNER_ID:
    try:
     name = await client.ask(message.chat.id, "*♪ ارسل الان اسم المستخدم الجديد  💎 .**")
     name = name.text
@@ -676,7 +660,7 @@ async def changeusername(client: Client, message):
 async def changephoto(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
-  if message.chat.id == dev or message.chat.username in OWNER:
+  if message.chat.id == dev or message.chat.username in OWNER_ID:
    try:
     m = await client.ask(message.chat.id, "**♪ قم بإرسال الصوره الجديده الان  💎 .**")
     photo = await m.download()
@@ -690,7 +674,7 @@ async def changephoto(client: Client, message):
 async def changephotos(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
-  if message.chat.id == dev or message.chat.username in OWNER:
+  if message.chat.id == dev or message.chat.username in OWNER_ID:
        try:
         client = await get_userbot(bot_username)
         photos = await client.get_profile_photos("me")
@@ -704,7 +688,7 @@ async def changephotos(client: Client, message):
 async def joined(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
-  if message.chat.id == dev or message.chat.username in OWNER:
+  if message.chat.id == dev or message.chat.username in OWNER_ID:
    try:
     name = await client.ask(message.chat.id, "**♪ ارسل الان الرابط  💎 .**")
     name = name.text
@@ -723,7 +707,7 @@ async def joined(client: Client, message):
 async def set_history(client: Client, message):
  bot_username = client.me.username
  dev = await get_dev(bot_username)
- if message.chat.id == dev or message.chat.username in OWNER:
+ if message.chat.id == dev or message.chat.username in OWNER_ID:
   if message.command[0] == "تغير مكان سجل التشغيل":
    ask = await client.ask(message.chat.id, "**♪ قم بارسال يوزرنيم أو ايدي الذي تريد تعيينه  💎 .**", timeout=30)
    logger = ask.text
