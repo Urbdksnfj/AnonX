@@ -85,57 +85,32 @@ async def get_thumb(videoid):
         font2 = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         name_font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
-        para = textwrap.wrap(title, width=32)
-        j = 0
         draw.text(
-            (600, 400),
+            (600, 300),
             "ALMORTAGEL PLAYING",
-            fill="white",
-            stroke_width=2,
-            stroke_fill="white",
+            (255, 255, 255),
             font=arial,
         )
-        for line in para:
-            if j == 1:
-                j += 1
-                draw.text(
-                    (600, 340),
-                    f"{OWNER_ID}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=arial,
-                )
-            if j == 0:
-                j += 1
-                draw.text(
-                    (600, 280),
-                    f"{OWNER_ID}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=arial,
-        )
         draw.text(
-            (600, 450),
+            (600, 400),
             f"Views : {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (600, 500),
+            (600, 450),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (600, 550),
+            (600, 500),
             f"Channel : {channel}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (600, 400),
+            (600, 550),
             f"DEV : ALMORTAGEL",
             (255, 255, 255),
             font=arial,
