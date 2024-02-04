@@ -538,8 +538,8 @@ async def set_join_must(client: Client, message):
    else:
      await message.reply_text("**تم تفعيل الاشتراك بنجاح 💎 .**")
      
-     @app.on_message(filters.command(["قسم المساعد"], ""))
-async def helpercn(client, message):
+@app.on_message(filters.command(["قسم المساعد"], ""))
+async def helpercn(client: Client, message):
    bot_username = client.me.username
    dev = await get_dev(bot_username)
    userbot = await get_userbot(bot_username)
