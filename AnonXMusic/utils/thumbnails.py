@@ -64,53 +64,41 @@ async def get_thumb(videoid):
                     await f.write(await resp.read())
                     await f.close()
 
-                youtube = Image.open(f"cache/thumb{videoid}.png")
+        youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(30))
+        background = image2.filter(filter=ImageFilter.BoxBlur(10))
         enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.6)
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
-        x1 = Xcenter - 250
-        y1 = Ycenter - 250
-        x2 = Xcenter + 250
-        y2 = Ycenter + 250
-        logo = youtube.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo = ImageOps.expand(logo, border=15, fill="white")
-        background.paste(logo, (50, 100))
+        background = enhancer.enhance(0.5)
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
-        font2 = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
-        name_font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
+        font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         draw.text(
-            (600, 300),
+            (600, 200),
             "ALMORTAGEL PLAYING",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (600, 400),
+            (600, 250),
             f"Views : {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (600, 450),
+            (600, 300),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (600, 500),
+            (600, 350),
             f"Channel : {channel}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (600, 550),
+            (600, 400),
             f"DEV : ALMORTAGEL",
             (255, 255, 255),
             font=arial,
@@ -157,5 +145,6 @@ async def get_thumb(videoid):
             pass
         background.save(f"cache/{videoid}.png")
         return f"cache/{videoid}.png"
-    except Exception:
+    except Exception as e:
+        print(e)
         return YOUTUBE_IMG_URL
