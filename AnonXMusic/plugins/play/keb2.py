@@ -1,5 +1,6 @@
 import asyncio
 import config
+import timeout
 from pyrogram import Client, filters
 from pyrogram import filters
 from AnonXMusic import app
@@ -406,12 +407,7 @@ async def cast(client: Client, message):
     await message.reply_text("**♪ مرحبا بك في قسم ⟨ التعيين ⟩ ⚡ .**", reply_markup=kep)
 
 @app.on_message(filters.command(["قسم البوت"], ""))
-async def A_q_lp(client, message):
-  bot_username = client.me.username
-  dev = await get_dev(bot_username)
-  chat = message.chat.id
-  uesr = message.chat.username
-  if chat == dev or uesr in OWNER_ID:
+async def cast(client: app, message):
     kep = ReplyKeyboardMarkup([
 ["الاحصائيات","المكالمات النشطه"],
 ["المجموعات","المستخدمين"],
