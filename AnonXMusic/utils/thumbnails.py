@@ -176,7 +176,6 @@ async def get_thumb(videoid):
             f"{duration[:23]}",
             (255, 255, 255),
             font=arial,
-        
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
