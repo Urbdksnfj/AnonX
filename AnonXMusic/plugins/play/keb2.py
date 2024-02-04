@@ -421,7 +421,8 @@ async def A_q_lp(client, message):
 ["تغير مكان سجل التشغيل"],
 ["✭ رجوع"]], resize_keyboard=True)
     await message.reply_text(f"**♪ مرحبا بك في قسم ⟨ البوت ⟩  💎 .**", reply_markup=kep,quote=True)
- @app.on_message(filters.command(["تعين اسم البوت"], ""))
+    
+@app.on_message(filters.command(["تعين اسم البوت"], ""))
 async def set_bot(client: Client, message):
    NAME = await client.ask(message.chat.id,"**♪ ارسل اسم البوت الجديد  💎 .**", filters=filters.text, timeout=30)
    BOT_NAME = NAME.text
