@@ -408,7 +408,7 @@ async def cast(client: Client, message):
 ["✭ رجوع"]], resize_keyboard=True)
     await message.reply_text("**♪ مرحبا بك في قسم ⟨ التعيين ⟩ ⚡ .**", reply_markup=kep)
 
-@app.on_message(filters.command("قسم البوت", ""))
+@app.on_message(filters.command(["قسم البوت"], ""))
 async def A_q_lp(client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
@@ -421,7 +421,7 @@ async def A_q_lp(client, message):
 ["تغير مكان سجل التشغيل"],
 ["✭ رجوع"]], resize_keyboard=True)
     await message.reply_text(f"**♪ مرحبا بك في قسم ⟨ البوت ⟩  💎 .**", reply_markup=kep,quote=True)
- @app.on_message(filters.command("تعين اسم البوت", ""))
+ @app.on_message(filters.command(["تعين اسم البوت"], ""))
 async def set_bot(client: Client, message):
    NAME = await client.ask(message.chat.id,"**♪ ارسل اسم البوت الجديد  💎 .**", filters=filters.text, timeout=30)
    BOT_NAME = NAME.text
@@ -437,7 +437,7 @@ async def bottttt(client: Client, message: Message):
     bar = random.choice(selections).format(BOT_NAME)
     await message.reply_text(f"**[{bar}](https://t.me/{bot_username}?startgroup=True)**", disable_web_page_preview=True)
 
-@app.on_message(filters.command("تعين لوجو السورس", ""))
+@app.on_message(filters.command(["تعين لوجو السورس"], ""))
 async def set_vi_so(client: Client, message):
    NAME = await client.ask(message.chat.id,"**♪ ارسل رابط لوجو السورس  💎 .\n♪ مثال ⟨ https://telegra.ph/file/5052303e233d674acebd1.jpg ⟩  💎 .**", filters=filters.text, timeout=30)
    VID_SO = NAME.text
@@ -447,7 +447,7 @@ async def set_vi_so(client: Client, message):
    
    
    
-@app.on_message(filters.command("تعين يوزر مطور السورس", ""))
+@app.on_message(filters.command(["تعين يوزر مطور السورس"], ""))
 async def set_dev_username(client: Client, message):
    NAME = await client.ask(message.chat.id,"**♪ ارسل معرف المطور الجديد  💎 .**", filters=filters.text, timeout=300)
    CH_DEV_USER = NAME.text
@@ -486,7 +486,7 @@ async def booot(client: Client, message: Message):
           pass
     message.continue_propagation()
     
-@app.on_message(filters.command("تعين قناة البوت", ""))
+@app.on_message(filters.command(["تعين قناة البوت"], ""))
 async def set_botch(client: Client, message):
    NAME = await client.ask(message.chat.id, "**♪ ارسل رابط القناه البوت الجديدة 💎 .**", filters=filters.text)
    channel = NAME.text
@@ -494,7 +494,7 @@ async def set_botch(client: Client, message):
    await set_channel(bot_username, channel)
    await message.reply_text("**♪ تم تعين قناه البوت بنجاح 💎 .**")
 
-@app.on_message(filters.command("تعين مجموعة البوت", ""))
+@app.on_message(filters.command(["تعين مجموعة البوت"], ""))
 async def set_botgr(client: Client, message):
    NAME = await client.ask(message.chat.id, "**♪ ارسل رابط الجروب الجديد 💎 .**", filters=filters.text)
    group = NAME.text
@@ -503,7 +503,7 @@ async def set_botgr(client: Client, message):
    await message.reply_text("**تم تعين مجموعه البوت بنجاح 💎 .**")
 
 
-@app.on_message(filters.command("تعين قناة السورس", ""))
+@app.on_message(filters.command(["تعين قناة السورس"], ""))
 async def set_botchsr(client: Client, message):
    NAME = await client.ask(message.chat.id, "**♪ ارسل رابط القناه البوت الجديدة 💎 .**", filters=filters.text)
    channelsr = NAME.text
@@ -511,7 +511,7 @@ async def set_botchsr(client: Client, message):
    await set_channelsr(bot_username, channelsr)
    await message.reply_text("**♪ تم تعين قناه السورس بنجاح 💎 .**")
 
-@app.on_message(filters.command("تعين مجموعة السورس", ""))
+@app.on_message(filters.command(["تعين مجموعة السورس"], ""))
 async def set_botgrsr(client: Client, message):
    NAME = await client.ask(message.chat.id, "**♪ ارسل رابط الجروب الجديد 💎 .**", filters=filters.text)
    groupsr = NAME.text
@@ -537,7 +537,7 @@ async def set_join_must(client: Client, message):
    else:
      await message.reply_text("**تم تفعيل الاشتراك بنجاح 💎 .**")
      
-     @app.on_message(filters.command("قسم المساعد", ""))
+     @app.on_message(filters.command(["قسم المساعد"], ""))
 async def helpercn(client, message):
    bot_username = client.me.username
    dev = await get_dev(bot_username)
@@ -558,7 +558,7 @@ async def helpercn(client, message):
     await message.reply_text(f"**♪ مرحبا بك في قسم ⟨ المساعد ⟩ 👤 .\n♪ name : {me.mention}  💎 .\n♪ user , id : {i}  💎 .\n♪ bio : {b}  💎 .**", reply_markup=kep)
    
 
-@app.on_message(filters.command("فحص المساعد", ""))
+@app.on_message(filters.command(["فحص المساعد"], ""))
 async def userrrrr(client: Client, message):
    bot_username = client.me.username
    dev = await get_dev(bot_username)
@@ -607,7 +607,7 @@ async def userrrrr(client: Client, message):
         )
     )
 
-@app.on_message(filters.command("تغير الاسم الاول", ""))
+@app.on_message(filters.command(["تغير الاسم الاول"], ""))
 async def changefisrt(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
@@ -622,7 +622,7 @@ async def changefisrt(client: Client, message):
      await message.reply_text(f"**♪ حدث خطأ أثناء تنفيذ الامر  💎 .\n♪ نوع الخطأ : {es}  💎 .**")
 
 
-@app.on_message(filters.command("تغير الاسم الثاني", ""))
+@app.on_message(filters.command(["تغير الاسم الثاني"], ""))
 async def changelast(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
@@ -637,7 +637,7 @@ async def changelast(client: Client, message):
      await message.reply_text(f"**♪ حدث خطأ أثناء تنفيذ الامر  💎 .\n♪ نوع الخطأ : {es}  💎 .**")
 
 
-@app.on_message(filters.command("تغير البايو", ""))
+@app.on_message(filters.command(["تغير البايو"], ""))
 async def changebio(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
@@ -652,7 +652,7 @@ async def changebio(client: Client, message):
      await message.reply_text(f"**♪ حدث خطأ أثناء تنفيذ الامر  💎 .\n♪ نوع الخطأ : {es}  💎 .**")
 
 
-@app.on_message(filters.command("تغير اسم المستخدم", ""))
+@app.on_message(filters.command(["تغير اسم المستخدم"], ""))
 async def changeusername(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
@@ -695,7 +695,7 @@ async def changephotos(client: Client, message):
          await message.reply_text(f"**♪ حدث خطأ أثناء تنفيذ الامر  💎 .\n♪ نوع الخطأ : {es}  💎 .**")
 
 
-@app.on_message(filters.command("دعوه المساعد الي الانضمام", ""))
+@app.on_message(filters.command(["دعوه المساعد الي الانضمام"], ""))
 async def joined(client: Client, message):
   bot_username = client.me.username
   dev = await get_dev(bot_username)
