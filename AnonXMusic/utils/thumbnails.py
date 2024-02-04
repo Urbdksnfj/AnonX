@@ -100,7 +100,7 @@ async def get_thumb(videoid):
                 j += 1
                 draw.text(
                     (600, 340),
-                    f"{line}",
+                    f"{OWNER_ID}",
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
@@ -110,7 +110,7 @@ async def get_thumb(videoid):
                 j += 1
                 draw.text(
                     (600, 280),
-                    f"{line}",
+                    f"{OWNER_ID}",
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
