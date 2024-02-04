@@ -82,7 +82,6 @@ async def get_thumb(videoid):
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
-        font2 = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         name_font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
@@ -93,7 +92,7 @@ async def get_thumb(videoid):
             fill="white",
             stroke_width=2,
             stroke_fill="white",
-            font=font2,
+            font=arial,
         )
         for line in para:
             if j == 1:
@@ -163,18 +162,6 @@ async def get_thumb(videoid):
             outline="white",
             fill="white",
             width=15,
-        )
-        draw.text( 
-            (36, 685),
-            "00:00",
-            (255, 255, 255),
-            font=font2,
-        )
-        draw.text(
-            (1185, 685),
-            f"{duration[:23]}",
-            (255, 255, 255),
-            font=font2,
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
