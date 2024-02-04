@@ -88,12 +88,12 @@ async def get_thumb(videoid):
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (600, 150),
+            (600, 400),
             "ALMORTAGEL PLAYING",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
-            font=font2,
+            font=arial,
         )
         for line in para:
             if j == 1:
@@ -104,7 +104,7 @@ async def get_thumb(videoid):
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
-                    font=font,
+                    font=arial,
                 )
             if j == 0:
                 j += 1
@@ -114,9 +114,8 @@ async def get_thumb(videoid):
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
-                    font=font,
-                )
-
+                    font=arial,
+        )
         draw.text(
             (600, 450),
             f"Views : {views[:23]}",
