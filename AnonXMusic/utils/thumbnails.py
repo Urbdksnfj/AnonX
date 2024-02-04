@@ -116,8 +116,7 @@ async def get_thumb(videoid):
                     stroke_fill="white",
                     font=font,
                 )
-
-        draw.text(
+                draw.text(
             (600, 450),
             f"Views : {views[:23]}",
             (255, 255, 255),
@@ -169,13 +168,13 @@ async def get_thumb(videoid):
             (36, 685),
             "00:00",
             (255, 255, 255),
-            font=arial,
+            font=font2,
         )
         draw.text(
             (1185, 685),
             f"{duration[:23]}",
             (255, 255, 255),
-            font=arial,
+            font=font2,
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
