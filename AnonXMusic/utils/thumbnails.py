@@ -83,9 +83,8 @@ async def get_thumb(videoid):
         )
         draw.text( 
             (36, 300),
-            f"cache/thumb{videoid}.png",
-            stroke_width=1,
-            stroke_fill="red",
+            f"AnonXMusic/assets/almortagel.png",
+            (255, 255, 255),
             font=arial,
         )
         draw.text(
