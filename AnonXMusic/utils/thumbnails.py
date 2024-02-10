@@ -81,6 +81,14 @@ async def get_thumb(videoid):
             stroke_fill="red",
             font=arial,
         )
+        draw.text( 
+            (36, 300),
+            f"cache/{videoid}.png"
+             stroke_width=1,
+            stroke_fill="red",
+            font=arial,
+        )
+        )
         draw.text(
             (600, 250),
             f"Views : {views[:23]}",
