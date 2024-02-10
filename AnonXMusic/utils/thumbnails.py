@@ -83,7 +83,7 @@ async def get_thumb(videoid):
         )
         draw.text( 
             (36, 300),
-            f"{AnonXMusic/assets/anonx.png}",
+            f"{OWNER_PHOTO}.png",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
