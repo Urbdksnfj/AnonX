@@ -83,7 +83,7 @@ async def get_thumb(videoid):
         )
         draw.text( 
             (36, 300),
-            f"AnonXMusic/assets/almortagel.png",
+            f"AnonXMusic/assets/anonx.png",
             (255, 255, 255),
             font=arial,
         )
