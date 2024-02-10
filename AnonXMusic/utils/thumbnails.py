@@ -81,11 +81,11 @@ async def get_thumb(videoid):
             font=arial, 
         )
         draw.text(
-            (600, 200),
+            (36, 200),
             f"{OWNER_PHOTO}profile",
             fill="red",
             (255, 255, 255),
-            font=arial,                   
+            font=arial,            
         )
         draw.text(
             (600, 250),
