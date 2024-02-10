@@ -88,7 +88,6 @@ async def get_thumb(videoid):
             stroke_fill="red",
             font=arial,
         )
-        )
         draw.text(
             (600, 250),
             f"Views : {views[:23]}",
