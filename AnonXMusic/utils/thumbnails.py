@@ -83,8 +83,8 @@ async def get_thumb(videoid):
         )
         draw.text( 
             (36, 300),
-            f"/thumb{videoid}.png"
-             stroke_width=1,
+            f"cache/thumb{videoid}.png",
+            stroke_width=1,
             stroke_fill="red",
             font=arial,
         )
