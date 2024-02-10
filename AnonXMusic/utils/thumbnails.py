@@ -8,8 +8,7 @@ from unidecode import unidecode
 from youtubesearchpython.__future__ import VideosSearch
 
 from AnonXMusic import app
-from config import YOUTUBE_IMG_URL
-
+from config import OWNER_PHOTO, YOUTUBE_IMG_URL
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
@@ -79,7 +78,14 @@ async def get_thumb(videoid):
             fill="red",
             stroke_width=2,
             stroke_fill="white",
-            font=arial,       
+            font=arial, 
+        )
+        draw.text(
+            (600, 200),
+            f"{OWNER_PHOTO}profile",
+            fill="red",
+            (255, 255, 255),
+            font=arial,                   
         )
         draw.text(
             (600, 250),
