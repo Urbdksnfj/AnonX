@@ -8,7 +8,7 @@ import aiohttp
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
                  ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
-import numpy as np
+from AnonXMusic import app
 from config import YOUTUBE_IMG_URL
 
 
@@ -91,7 +91,7 @@ async def get_thumb(videoid):
             im = im.convert('RGBA')
             color = make_col()
 
-            data = np.array(im)
+            data = app.array(im)
             red, green, blue, alpha = data.T
 
             white_areas = (red == 255) & (blue == 255) & (green == 255)
@@ -105,9 +105,9 @@ async def get_thumb(videoid):
             lum_img = Image.new('L', [720,720] , 0)
             draw = ImageDraw.Draw(lum_img)
             draw.pieslice([(0,0), (720,720)], 0, 360, fill = 255, outline = "white")
-            img_arr = np.array(image3)
-            lum_img_arr = np.array(lum_img)
-            final_img_arr = np.dstack((img_arr,lum_img_arr))
+            img_arr = app.array(image3)
+            lum_img_arr = app.array(lum_img)
+            final_img_arr = app.dstack((img_arr,lum_img_arr))
             image3 = Image.fromarray(final_img_arr)
             image3 = image3.resize((600,600))
             
