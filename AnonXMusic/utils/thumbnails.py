@@ -8,7 +8,7 @@ import aiohttp
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
                  ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
-import AnonXMusic as np
+import numpy as np
 from config import YOUTUBE_IMG_URL
 
 
