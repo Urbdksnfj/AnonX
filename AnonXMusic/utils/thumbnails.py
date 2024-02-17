@@ -65,7 +65,7 @@ async def get_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        circle = Image.open("AnonXMusic/assets/anonx.png")
+        circle = Image.open(f"AnonXMusic/assets/anonx.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(10))
@@ -80,9 +80,9 @@ async def get_thumb(videoid):
         draw.text(
             (600, 150),
             "Almortagel Playing",
-            fill="black",
+            fill="white",
             stroke_width=2,
-            stroke_fill="black",
+            stroke_fill="white",
             font=font,
         )
         draw.text(
@@ -106,9 +106,9 @@ async def get_thumb(videoid):
         draw.text(
             (600, 350),
             "DEV : ALMORTAGEL",
-            fill="black",
+            fill="white",
             stroke_width=2,
-            stroke_fill="black",
+            stroke_fill="white",
             font=font,
         )
         draw.text(
