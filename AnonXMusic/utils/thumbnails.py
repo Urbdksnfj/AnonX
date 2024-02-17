@@ -71,10 +71,10 @@ async def get_thumb(videoid):
         background = image2.filter(filter=ImageFilter.BoxBlur(10))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.5)
-        image3 = changeImageSize(1280, 720, circle)
-        image5 = image3.convert("RGBA")
-        Image.alpha_composite(background, image5).save(f"cache/temp{OWNER_PHOTO}.png")
         draw = ImageDraw.Draw(background)
+        image3 = changeImageSize(1280, 720, circle)
+        image4 = image3.convert("RGBA")
+        Image.alpha_composite(background, image4).save(f"cache/thumb{owner_id}.png")
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         draw.text(
