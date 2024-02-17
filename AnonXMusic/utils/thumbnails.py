@@ -124,20 +124,12 @@ async def gen_thumb(videoid, user_id):
         para = textwrap.wrap(title, width=32)
         try:
             draw.text(
-                (450, 25),
+                (600, 150),
                 f"Almortagel PLAYING",
                 fill="white",
                 stroke_width=3,
                 stroke_fill="grey",
                 font=font,
-            )
-            draw.text(
-            (600, 150),
-            "Almortagel Playing",
-            fill="white",
-            stroke_width=2,
-            stroke_fill="white",
-            font=arial,
             )
             draw.text(
             (600, 200),
@@ -194,7 +186,8 @@ async def gen_thumb(videoid, user_id):
             f"{duration[:23]}",
             (255, 255, 255),
             font=arial,
-          )
+         )
+
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
