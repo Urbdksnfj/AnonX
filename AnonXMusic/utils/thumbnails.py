@@ -65,7 +65,7 @@ async def get_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        circle = Image.open("AnonXMusic/assets/anonx.png")
+        circle = Image.open(f"AnonXMusic/assets/anonx.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(10))
@@ -74,7 +74,7 @@ async def get_thumb(videoid):
         draw = ImageDraw.Draw(background)
         image3 = changeImageSize(1280, 720, circle)
         image4 = image3.convert("RGBA")
-        Image.alpha_composite(background, image4).save(f"cache/thumb{owner_id}.png")
+        Image.alpha_composite(background, image4).save(f"cache/thumb{videoid}.png")
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         draw.text(
