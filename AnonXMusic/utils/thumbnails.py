@@ -121,78 +121,78 @@ async def gen_thumb(videoid, user_id):
         ImageFont.truetype("AnonXMusic/assets/font2.ttf", 70)
         arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
         ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
-        para = textwrap.wrap(title, width=32)
-        try:
-            draw.text(
-                (600, 150),
-                f"Almortagel PLAYING",
-                fill="white",
-                stroke_width=3,
-                stroke_fill="grey",
-                font=font,
-            )
-            draw.text(
+        draw.text(
             (600, 200),
+            "ALMORTAGEL PLAYING",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (600, 250),
             f"Views : {views[:23]}",
             (255, 255, 255),
             font=arial,
-            )
-            draw.text(
-            (600, 250),
-            f"DURATION : {duration[:23]} Mins",
+        )
+        draw.text(
+            (600, 300),
+            f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
             font=arial,
-            )
-            draw.text(
-            (600, 300),
+        )
+        draw.text(
+            (600, 350),
             f"Channel : {channel}",
             (255, 255, 255),
             font=arial,
-            )
-            draw.text(
-            (600, 350),
-            "DEV : ALMORTAGEL",
-            fill="white",
-            stroke_width=2,
-            stroke_fill="white",
+        )
+        draw.text(
+            (600, 400),
+            f"DEV : ALMORTAGEL",
+            (255, 255, 255),
             font=arial,
-            )
-            draw.text(
+        )
+        draw.text(
+            (55, 560),
+            f"{channel} | {views[:23]}",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
             (57, 600),
             clear(title),
             (255, 255, 255),
             font=font,
-            )
-            draw.line(
+        )
+        draw.line(
             [(55, 660), (1220, 660)],
             fill="white",
             width=5,
             joint="curve",
-            )
-            draw.ellipse(
+        )
+        draw.ellipse(
             [(918, 648), (942, 672)],
             outline="white",
             fill="white",
             width=15,
-            )
-            draw.text(
+        )
+        draw.text( 
             (36, 685),
             "00:00",
             (255, 255, 255),
             font=arial,
-            )
-            draw.text(
+        )
+        draw.text(
             (1185, 685),
             f"{duration[:23]}",
             (255, 255, 255),
             font=arial,
-            )
-            try:
-                os.remove(f"cache/thumb{videoid}.png")
-            except:
-               pass
-            background.save(f"cache/{videoid}.png")
-            return f"cache/{videoid}.png"
-         except Exception as e:
-            print(e)
-            return YOUTUBE_IMG_URL
+        )
+        try:
+            os.remove(f"cache/thumb{videoid}.png")
+        except:
+            pass
+        background.save(f"cache/{videoid}.png")
+        return f"cache/{videoid}.png"
+    except Exception as e:
+        print(e)
+        return YOUTUBE_IMG_URL
