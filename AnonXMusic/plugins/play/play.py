@@ -39,6 +39,7 @@ from config import BANNED_USERS, lyrical
             "تشغيل",
              "فيديو",
              "تخطي"], "")
+    & ~BANNED_USERS
 )
 @PlayWrapper
 async def play_commnd(
