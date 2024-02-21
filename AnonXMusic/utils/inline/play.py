@@ -101,15 +101,15 @@ def stream_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="𝚂𝙾𝚄𝚁𝙲𝙴⁩", url=f"https://t.me/AlmortagelTech"
+                text="𝚂𝙾𝚄𝚁𝙲𝙴⁩", url=f"https://t.me/BPHEE"
                         ),
            InlineKeyboardButton(
-                text="𝙶𝚁𝙾𝚄𝙿", url=f"https://t.me/AlmortagelTech2"
+                text="𝙶𝚁𝙾𝚄𝙿", url=f"https://t.me/B_X_N1"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="✯ᴍʀ ᴇʟᴍᴏʀᴛᴀɢᴇʟ✯", url=f"https://t.me/Almortagel_12"
+                text="『 𝗬.𝗢.𝗨.𝗦.𝗦.𝗘.𝐅 』", url=f"https://t.me/JOO_B_R_Z"
             )
         ],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
